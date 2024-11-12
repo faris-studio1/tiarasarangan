@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   FaHotel,
   FaSave,
@@ -70,7 +70,7 @@ const TambahBooking = () => {
   // Memperbarui daftar kamar setiap kali tanggal yang dipilih berubah
   useEffect(() => {
     checkRoomAvailabilityByDate();
-  }, [selectedDate]);
+  }, [selectedDate, bookingList, checkInList, riwayatList]);
 
   // Fungsi untuk menangani klik pada tombol kamar
   const handleRoomClick = (roomId) => {
@@ -145,7 +145,7 @@ const TambahBooking = () => {
   };
 
   // Fungsi untuk mengecek ketersediaan kamar berdasarkan tanggal yang dipilih
-  const checkRoomAvailabilityByDate = () => {
+  const checkRoomAvailabilityByDate = useCallback(() => {
     if (selectedDate) {
       const updateRoomStatus = (roomList) => {
         return roomList.map((kamar) => {
@@ -193,7 +193,14 @@ const TambahBooking = () => {
       setVillaTiara1(updatedVillaTiara1);
       setVillaTiara2(updatedVillaTiara2);
     }
-  };
+  }, [
+    selectedDate,
+    bookingList,
+    checkInList,
+    riwayatList,
+    villaTiara1,
+    villaTiara2,
+  ]);
 
   return (
     <>
@@ -320,13 +327,15 @@ const TambahBooking = () => {
           >
             <div>
               <h2 className="text-xl font-semibold mb-2 text-center">
-                ID Kamar:{" "}
+                ID Kamar:&quot;
                 <span className="font-bold text-orange-600">
                   {selectedRoomId}
                 </span>
               </h2>
               <h2 className="text-md font-semibold mb-4 text-center">
-                <span className="font-bold">"{selectedRoomType}"</span>
+                <span className="font-bold">
+                  &quot;{selectedRoomType}&quot;
+                </span>
               </h2>
             </div>
 
