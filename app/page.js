@@ -1,11 +1,12 @@
+"use client";
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const HomeRedirect = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/User/Beranda");
+    router.replace("/Beranda");
   }, [router]);
 
   return null;
