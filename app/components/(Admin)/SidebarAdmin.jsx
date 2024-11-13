@@ -164,13 +164,6 @@ const SidebarAdmin = () => {
                     </a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/DaftarKamar" passHref legacyBehavior>
-                    <a className="text-gray-300 hover:text-white">
-                      Tambah Kamar
-                    </a>
-                  </Link>
-                </li>
               </ul>
             </li>
             <li className="px-6 py-4 hover:bg-gradient-to-r hover:from-orange-500 hover:to-red-500">

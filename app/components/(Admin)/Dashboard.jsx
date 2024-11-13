@@ -1,6 +1,20 @@
+"use client";
 import { FaBed, FaCalendar, FaUsers, FaStar } from "react-icons/fa";
+import kamarList from "./TambahKamar";
+import { useEffect } from "react";
 
 const DashboardAdmin = () => {
+  useEffect(() => {
+    // Konversi objek JSON ke string
+    const jsonData = JSON.stringify(kamarList);
+    // Simpan ke local storage dengan kunci "kamarList"
+    localStorage.setItem("kamarList", jsonData);
+    console.log(
+      "Data telah disimpan ke local storage:",
+      localStorage.getItem("kamarList")
+    );
+  }, []);
+
   return (
     <div className="mb-20">
       <h2 className="text-2xl font-semibold text-gray-800">
