@@ -203,16 +203,16 @@ const TambahBooking = () => {
   ]);
 
   return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-        <div className="bg-white py-8 px-12 rounded-xl shadow-lg md:col-span-2">
-          <h2 className="text-2xl font-bold mb-8 text-center flex items-center justify-center">
+    <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 py-14 md:pt-10 px-8 overflow-y-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white dark:bg-gray-800 py-8 px-12 rounded-xl shadow-lg md:col-span-2">
+          <h2 className="text-2xl font-bold mb-8 text-center flex items-center justify-center text-gray-800 dark:text-gray-200">
             <FaHotel className="text-yellow-500 mr-2" /> Tambah Booking
           </h2>
           <div className="flex items-center justify-between mb-4">
             <Link
               href="/Dashboard"
-              className="flex items-center text-sm font-semibold text-gray-600 hover:text-yellow-500 transition"
+              className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition"
             >
               <FaArrowLeft className="text-yellow-500 mr-2" />
               Kembali
@@ -220,7 +220,7 @@ const TambahBooking = () => {
             <input
               type="date"
               id="selectedDate"
-              className="text-sm px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out"
+              className="text-sm px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-600 dark:text-gray-200 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
               min={today}
@@ -239,14 +239,16 @@ const TambahBooking = () => {
                     key={kamar.kodeKamar}
                     className={`text-center p-2 border-2 rounded-lg cursor-pointer ${
                       kamar.status === "checked"
-                        ? "bg-green-600 text-white" // Warna merah untuk kamar terisi
+                        ? "bg-green-600 text-white"
                         : kamar.status === "booked"
-                        ? "bg-yellow-500 text-black" // Warna kuning untuk kamar yang dibooking
-                        : "bg-yellow-50 border-yellow-500 hover:border-orange-700"
+                        ? "bg-yellow-500 text-black"
+                        : "bg-yellow-50 dark:bg-gray-700 border-yellow-500 dark:border-gray-600 hover:border-orange-700 dark:hover:border-orange-500"
                     }`}
                     onClick={() => handleRoomClick(kamar.kodeKamar)}
                   >
-                    <h3 className="font-semibold">{kamar.kodeKamar}</h3>
+                    <h3 className="font-semibold text-gray-800 dark:text-gray-200">
+                      {kamar.kodeKamar}
+                    </h3>
                   </div>
                 ))}
               </div>
@@ -261,40 +263,42 @@ const TambahBooking = () => {
                     key={kamar.kodeKamar}
                     className={`text-center p-2 border-2 rounded-lg cursor-pointer ${
                       kamar.status === "checked"
-                        ? "bg-green-600 text-white" // Warna merah untuk kamar terisi
+                        ? "bg-green-600 text-white"
                         : kamar.status === "booked"
-                        ? "bg-yellow-500 text-black" // Warna kuning untuk kamar yang dibooking
-                        : "bg-yellow-50 border-yellow-500 hover:border-orange-700"
+                        ? "bg-yellow-500 text-black"
+                        : "bg-yellow-50 dark:bg-gray-700 border-yellow-500 dark:border-gray-600 hover:border-orange-700 dark:hover:border-orange-500"
                     }`}
                     onClick={() => handleRoomClick(kamar.kodeKamar)}
                   >
-                    <h3 className="font-semibold">{kamar.kodeKamar}</h3>
+                    <h3 className="font-semibold text-gray-800 dark:text-gray-200">
+                      {kamar.kodeKamar}
+                    </h3>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          <div className="p-4 bg-gray-200 rounded-xl mt-4 shadow-lg border-2 border-gray-400">
+          <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-xl mt-4 shadow-lg border-2 border-gray-400 dark:border-gray-600">
             <div className="grid grid-cols-1 md:grid-cols-11 gap-2">
-              <div className="flex p-2 col-span-4 items-center shadow-md justify-start rounded-lg bg-white">
+              <div className="flex p-2 md:col-span-4 items-center shadow-md justify-start rounded-lg bg-white dark:bg-gray-800">
                 <FaBed className="text-yellow-600 text-xl mx-4" />
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-700">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                     Jumlah Bed:
                   </h4>
-                  <p className="text-gray-800 text-md font-bold">
+                  <p className="text-gray-800 dark:text-gray-200 text-md font-bold">
                     {selectedBed}
                   </p>
                 </div>
               </div>
-              <div className="flex p-2 col-span-3 items-center shadow-md justify-start rounded-lg bg-white">
+              <div className="flex p-2 md:col-span-3 items-center shadow-md justify-start rounded-lg bg-white dark:bg-gray-800">
                 <FaTags className="text-yellow-600 text-xl mx-4" />
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-700">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                     Status:
                   </h4>
                   <p
-                    className={`text-gray-800 text-md font-bold ${
+                    className={`text-gray-800 dark:text-gray-200 text-md font-bold ${
                       selectedStatus === "kosong"
                         ? "text-green-600"
                         : "text-red-600"
@@ -304,13 +308,13 @@ const TambahBooking = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex p-2 col-span-4 items-center shadow-md justify-start rounded-lg bg-white">
+              <div className="flex p-2 md:col-span-4 items-center shadow-md justify-start rounded-lg bg-white dark:bg-gray-800">
                 <FaDollarSign className="text-yellow-600 text-xl mx-4" />
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-700">
+                  <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                     Harga per Malam :
                   </h4>
-                  <p className="text-gray-800 text-md font-bold">
+                  <p className="text-gray-800 dark:text-gray-200 text-md font-bold">
                     Rp. {selectedRoomHarga.toLocaleString()}
                   </p>
                 </div>
@@ -318,21 +322,23 @@ const TambahBooking = () => {
             </div>
           </div>
         </div>
+
         {/* form booking */}
-        <div className="bg-white py-8 px-12 rounded-xl shadow-lg w-full max-w-3xl md:col-span-1">
+        <div className="bg-white dark:bg-gray-800 py-8 px-12 rounded-xl shadow-lg w-full max-w-3xl md:col-span-1">
           <form
             id="bookingForm"
             className="space-y-4 text-sm"
             onSubmit={handleSubmit}
           >
             <div>
-              <h2 className="text-xl font-semibold mb-2 text-center">
-                ID Kamar:&quot;
+              <h2 className="text-xl font-semibold mb-2 text-center text-gray-800 dark:text-gray-200">
+                ID Kamar : &quot;
                 <span className="font-bold text-orange-600">
                   {selectedRoomId}
                 </span>
+                &quot;
               </h2>
-              <h2 className="text-md font-semibold mb-4 text-center">
+              <h2 className="text-md font-semibold mb-4 text-center text-gray-800 dark:text-gray-200">
                 <span className="font-bold">
                   &quot;{selectedRoomType}&quot;
                 </span>
@@ -343,14 +349,14 @@ const TambahBooking = () => {
             <div className="mb-4">
               <label
                 htmlFor="namaTamu"
-                className="block text-gray-700 font-medium"
+                className="block text-gray-700 dark:text-gray-300 font-medium"
               >
                 Nama Tamu:
               </label>
               <input
                 type="text"
                 id="namaTamu"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
                 required
                 placeholder="Masukkan Nama Lengkap"
               />
@@ -358,14 +364,14 @@ const TambahBooking = () => {
             <div className="mb-4">
               <label
                 htmlFor="noTelepon"
-                className="block text-gray-700 font-medium"
+                className="block text-gray-700 dark:text-gray-300 font-medium"
               >
                 No Telepon:
               </label>
               <input
                 type="number"
                 id="noTelepon"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
                 required
                 placeholder="Masukkan No Telepon"
               />
@@ -376,14 +382,14 @@ const TambahBooking = () => {
               <div>
                 <label
                   htmlFor="tanggalCheckIn"
-                  className="block text-gray-700 font-medium"
+                  className="block text-gray-700 dark:text-gray-300 font-medium"
                 >
                   Check-in:
                 </label>
                 <input
                   type="date"
                   id="tanggalCheckIn"
-                  className="w-full px-4 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
                   onChange={handleCheckInChange}
                   min={today}
                   required
@@ -394,14 +400,14 @@ const TambahBooking = () => {
               <div>
                 <label
                   htmlFor="tanggalCheckOut"
-                  className="block text-gray-700 font-medium"
+                  className="block text-gray-700 dark:text-gray-300 font-medium"
                 >
                   Check-out:
                 </label>
                 <input
                   type="date"
                   id="tanggalCheckOut"
-                  className="w-full px-4 py-2 border rounded-md"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
                   onChange={handleCheckOutChange}
                   min={checkInDate}
                   required
@@ -413,7 +419,7 @@ const TambahBooking = () => {
             <div className="mb-4">
               <label
                 htmlFor="Harga"
-                className="block text-gray-700 font-medium"
+                className="block text-gray-700 dark:text-gray-300 font-medium"
               >
                 Total Harga (Rp):
               </label>
@@ -423,7 +429,7 @@ const TambahBooking = () => {
                 min="0"
                 value={totalHarga}
                 readOnly
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
                 placeholder="Masukkan Jumlah Harga"
                 required
               />
@@ -450,7 +456,7 @@ const TambahBooking = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
