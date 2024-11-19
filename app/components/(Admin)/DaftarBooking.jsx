@@ -87,13 +87,7 @@ const DaftarBooking = () => {
   // Memperbarui daftar kamar setiap kali tanggal yang dipilih berubah
   useEffect(() => {
     checkRoomAvailabilityByDate();
-  }, [
-    selectedDate,
-    bookingList,
-    checkInList,
-    riwayatList,
-    checkRoomAvailabilityByDate,
-  ]);
+  }, [selectedDate, bookingList, checkInList, riwayatList]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
