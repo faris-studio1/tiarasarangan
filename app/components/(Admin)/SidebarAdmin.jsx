@@ -297,4 +297,6 @@ const SidebarAdmin = forwardRef(({ isOpen }, ref) => {
   );
 });
 
+SidebarAdmin.displayName = "SidebarAdmin";
+
 export default SidebarAdmin;
