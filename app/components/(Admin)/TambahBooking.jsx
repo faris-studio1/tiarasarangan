@@ -122,7 +122,7 @@ const TambahBooking = () => {
       tanggalCheckIn: e.target.tanggalCheckIn.value,
       tanggalCheckOut: e.target.tanggalCheckOut.value,
       harga: totalHarga,
-      statusBooking: "terdaftar",
+      statusBooking: "booking",
     };
 
     const updatedBookingList = [...bookingList, newBooking];
@@ -203,31 +203,32 @@ const TambahBooking = () => {
   ]);
 
   return (
-    <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 py-14 md:pt-10 px-8 overflow-y-auto">
+    <div className="fixed left-0 top-14 bottom-10 right-0 md:left-64 py-14 md:pt-10 px-8 overflow-y-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 py-8 px-12 rounded-xl shadow-lg md:col-span-2">
-          <h2 className="text-2xl font-bold mb-8 text-center flex items-center justify-center text-gray-800 dark:text-gray-200">
-            <FaHotel className="text-yellow-500 mr-2" /> Tambah Booking
-          </h2>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
             <Link
               href="/Dashboard"
-              className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition"
+              className="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition mb-2 md:mb-0"
             >
               <FaArrowLeft className="text-yellow-500 mr-2" />
               Kembali
             </Link>
+            <h2 className="text-2xl font-bold mb-4 md:mb-0 text-center text-gray-800 dark:text-gray-200">
+              <div className="flex items-center justify-center">
+                <FaHotel className="text-yellow-500 mr-2" />
+                Tambah Booking
+              </div>
+            </h2>
             <input
               type="date"
               id="selectedDate"
-              className="text-sm px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-600 dark:text-gray-200 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out"
+              className="text-xs px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-600 dark:text-gray-200 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out w-full md:w-auto"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
               min={today}
-              style={{ width: "115px" }}
             />
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h2 className="logo bg-gradient-to-br from-orange-500 to-red-500 text-white text-md rounded-lg p-2 mb-4 text-center font-bold">
@@ -333,7 +334,7 @@ const TambahBooking = () => {
             <div>
               <h2 className="text-xl font-semibold mb-2 text-center text-gray-800 dark:text-gray-200">
                 ID Kamar : &quot;
-                <span className="font-bold text-orange-600">
+                <span className="font-bold text-orange-600 dark:text-yellow-500">
                   {selectedRoomId}
                 </span>
                 &quot;
