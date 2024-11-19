@@ -70,13 +70,7 @@ const TambahBooking = () => {
   // Memperbarui daftar kamar setiap kali tanggal yang dipilih berubah
   useEffect(() => {
     checkRoomAvailabilityByDate();
-  }, [
-    selectedDate,
-    bookingList,
-    checkInList,
-    riwayatList,
-    checkRoomAvailabilityByDate,
-  ]);
+  }, [selectedDate, bookingList, checkInList, riwayatList]);
 
   // Fungsi untuk menangani klik pada tombol kamar
   const handleRoomClick = (roomId) => {

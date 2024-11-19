@@ -73,17 +73,16 @@ const DashboardAdmin = () => {
     return guestsOnDate.length; // Jumlah tamu pada tanggal tertentu
   };
 
-  // Fungsi untuk mengonversi nominal ke format yang lebih mudah dibaca
-  const formatCurrency = (num) => {
-    if (num >= 1000000000) {
-      return `${(num / 1000000000).toFixed(1)} M`;
-    } else if (num >= 1000000) {
-      return `${(num / 1000000).toFixed(1)} Jt`;
-    } else if (num >= 1000) {
-      return `${(num / 1000).toFixed(1)} Rb`;
-    } else {
-      return num.toString();
+  // Fungsi untuk format mata uang
+  const formatCurrency = (value) => {
+    if (value >= 1_000_000_000) {
+      return `${(value / 1_000_000_000).toFixed(1)} M`;
+    } else if (value >= 1_000_000) {
+      return `${(value / 1_000_000).toFixed(1)} Jt`;
+    } else if (value >= 1_000) {
+      return `${(value / 1_000).toFixed(1)} Rb`;
     }
+    return value;
   };
 
   // Menghitung total pendapatan dari riwayatList
