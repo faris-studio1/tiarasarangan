@@ -420,7 +420,7 @@ const DaftarBooking = () => {
       </div>
 
       {isEditing && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-80 flex justify-center items-center z-50 p-10 md:left-64 overflow-auto">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-80 flex justify-center items-start z-50 p-10 py-24 md:left-64 overflow-auto">
           <div className="md:flex bg-white dark:bg-gray-700 rounded-xl shadow-lg">
             <div className="bg-gray-300 dark:bg-gray-900 md:rounded-bl-xl rounded-tl-xl md:rounded-tr-none rounded-tr-xl py-9 px-12 md:col-span-2">
               <div className="md:flex items-center justify-between mb-4">
