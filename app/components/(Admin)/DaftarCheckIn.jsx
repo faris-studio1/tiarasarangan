@@ -183,8 +183,8 @@ const DaftarCheckIn = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-between ">
-          <div className="mt-8 flex justify-between items-center">
+        <div className="flex items-center justify-between mt-8">
+          <div>
             <Link
               href="/DaftarBooking"
               className="flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition"

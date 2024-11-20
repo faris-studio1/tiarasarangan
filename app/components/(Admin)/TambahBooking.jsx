@@ -206,15 +206,15 @@ const TambahBooking = () => {
     <div className="fixed left-0 top-14 bottom-10 right-0 md:left-64 py-14 md:pt-10 px-8 overflow-y-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 py-8 px-12 rounded-xl shadow-lg md:col-span-2">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-8">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-4 md:mb-8">
             <Link
               href="/Dashboard"
-              className="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition mb-2 md:mb-0"
+              className="hidden md:flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 hover:text-yellow-500 transition mb-2 md:mb-0"
             >
               <FaArrowLeft className="text-yellow-500 mr-2" />
               Kembali
             </Link>
-            <h2 className="text-2xl font-bold mb-4 md:mb-0 text-center text-gray-800 dark:text-gray-200">
+            <h2 className="text-2xl font-bold mb-6 md:mb-0 text-center text-gray-800 dark:text-gray-200">
               <div className="flex items-center justify-center">
                 <FaHotel className="text-yellow-500 mr-2" />
                 Tambah Booking
@@ -223,7 +223,7 @@ const TambahBooking = () => {
             <input
               type="date"
               id="selectedDate"
-              className="text-xs px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-600 dark:text-gray-200 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out w-full md:w-auto"
+              className="text-xs px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-200 rounded-md shadow-sm focus:ring-2 focus:ring-yellow-500 focus:outline-none transition duration-300 ease-in-out w-full md:w-auto"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
               min={today}
@@ -234,7 +234,7 @@ const TambahBooking = () => {
               <h2 className="logo bg-gradient-to-br from-orange-500 to-red-500 text-white text-md rounded-lg p-2 mb-4 text-center font-bold">
                 Villa Tiara 2
               </h2>
-              <div className="grid grid-cols-5 md:grid-cols-4 gap-2 text-sm">
+              <div className="grid grid-cols-4 gap-2 text-sm">
                 {villaTiara2.map((kamar) => (
                   <div
                     key={kamar.kodeKamar}
@@ -258,7 +258,7 @@ const TambahBooking = () => {
               <h2 className="logo bg-gradient-to-br from-orange-500 to-red-500 text-white text-md rounded-lg p-2 mb-4 text-center font-bold">
                 Villa Tiara 1
               </h2>
-              <div className="grid grid-cols-5 md:grid-cols-4 gap-2 text-sm">
+              <div className="grid grid-cols-4 gap-2 text-sm">
                 {villaTiara1.map((kamar) => (
                   <div
                     key={kamar.kodeKamar}
@@ -279,7 +279,7 @@ const TambahBooking = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-xl mt-4 shadow-lg border-2 border-gray-400 dark:border-gray-600">
+          <div className="p-4 bg-gray-200 dark:bg-gray-700 rounded-xl mt-6 md:mt-4 shadow-lg border-2 border-gray-400 dark:border-gray-600">
             <div className="grid grid-cols-1 md:grid-cols-11 gap-2">
               <div className="flex p-2 md:col-span-4 items-center shadow-md justify-start rounded-lg bg-white dark:bg-gray-800">
                 <FaBed className="text-yellow-600 text-xl mx-4" />
@@ -357,7 +357,7 @@ const TambahBooking = () => {
               <input
                 type="text"
                 id="namaTamu"
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200"
                 required
                 placeholder="Masukkan Nama Lengkap"
               />
@@ -372,7 +372,7 @@ const TambahBooking = () => {
               <input
                 type="number"
                 id="noTelepon"
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200"
                 required
                 placeholder="Masukkan No Telepon"
               />
@@ -390,7 +390,7 @@ const TambahBooking = () => {
                 <input
                   type="date"
                   id="tanggalCheckIn"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200"
                   onChange={handleCheckInChange}
                   min={today}
                   required
@@ -408,7 +408,7 @@ const TambahBooking = () => {
                 <input
                   type="date"
                   id="tanggalCheckOut"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200"
                   onChange={handleCheckOutChange}
                   min={checkInDate}
                   required
@@ -430,18 +430,18 @@ const TambahBooking = () => {
                 min="0"
                 value={totalHarga}
                 readOnly
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-600 dark:text-gray-200"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md dark:bg-gray-700 dark:text-gray-200"
                 placeholder="Masukkan Jumlah Harga"
                 required
               />
             </div>
 
             {/* Tombol Submit */}
-            <div className="flex justify-center items-center space-x-2">
+            <div className="flex justify-center pt-2 md:pt-0 items-center space-x-2">
               <button
                 type="button"
                 onClick={handleClear}
-                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg shadow-md transition flex items-center"
+                className="bg-gray-600 hover:bg-gray-600 text-white px-6 py-3 rounded-lg shadow-md transition flex items-center"
               >
                 <FaTrash className="mr-2" />
                 Clear

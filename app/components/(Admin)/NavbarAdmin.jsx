@@ -1,13 +1,22 @@
 "use client";
 
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { FaSearch, FaBell, FaUserCircle, FaSun, FaMoon } from "react-icons/fa";
+import {
+  FaSearch,
+  FaBell,
+  FaUserCircle,
+  FaSun,
+  FaMoon,
+  FaExpand,
+  FaCompress,
+} from "react-icons/fa";
 import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
 import SidebarAdmin from "./SidebarAdmin"; // Pastikan path import benar
 
 const NavbarAdmin = () => {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const sidebarRef = useRef(null);
 
   const handleMenuToggle = () => {
@@ -17,6 +26,20 @@ const NavbarAdmin = () => {
   const handleClickOutside = (event) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.error(
+          `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+        );
+      });
+      setIsFullScreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullScreen(false);
     }
   };
 
@@ -32,10 +55,20 @@ const NavbarAdmin = () => {
     };
   }, [isMobileMenuOpen]);
 
+  useEffect(() => {
+    const handleFullScreenChange = () => {
+      setIsFullScreen(!!document.fullscreenElement);
+    };
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+    };
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-30 md:left-60 border-b-2 border-gray-200 bg-gray-100 dark:bg-gray-800 dark:border-gray-400">
-        <div className="flex justify-between items-center h-16 mx-10">
+        <div className="flex justify-between items-center h-16 mx-6">
           <div className="flex items-center">
             <button
               className="text-3xl text-gray-600 dark:text-gray-200 md:hidden"
@@ -60,6 +93,13 @@ const NavbarAdmin = () => {
               <FaBell className="text-gray-600 dark:text-gray-200 text-xl" />
               <span className="absolute top-0 right-0 block w-2.5 h-2.5 bg-red-500 rounded-full"></span>
             </div>
+            <button
+              className="text-xl text-gray-600 dark:text-gray-200 focus:outline-none"
+              onClick={handleFullScreen}
+              aria-label="Toggle Full Screen"
+            >
+              {isFullScreen ? <FaCompress /> : <FaExpand />}
+            </button>
 
             <button
               className="text-xl text-gray-600 dark:text-gray-200 focus:outline-none"
