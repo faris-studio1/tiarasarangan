@@ -1,13 +1,15 @@
 "use client";
 
 import {
-  FaFilePdf,
+  FaFileExcel,
   FaBookOpen,
   FaArrowLeft,
   FaTrash,
   FaSearch,
 } from "react-icons/fa";
 import Link from "next/link";
+import ExcelJS from "exceljs";
+import { saveAs } from "file-saver";
 import { useEffect, useState } from "react";
 
 const DaftarRiwayat = () => {
@@ -39,9 +41,85 @@ const DaftarRiwayat = () => {
     setSearchTerm(e.target.value);
   };
 
-  // Fungsi untuk mencetak invoice
-  const printRiwayat = () => {
-    window.print();
+  const exportToExcel = () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Riwayat Reservasi");
+
+    // Header Data
+    const headers = [
+      "No",
+      "ID Kamar",
+      "Nama Tamu",
+      "No Telepon",
+      "Check-In",
+      "Check-Out",
+      "Total Harga",
+    ];
+    worksheet.addRow(headers);
+
+    // Style Header
+    headers.forEach((_, index) => {
+      const cell = worksheet.getRow(1).getCell(index + 1);
+      cell.font = { bold: true, color: { argb: "FFFFFFFF" } };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFFF0000" },
+      };
+      cell.alignment = { vertical: "middle", horizontal: "center" };
+      cell.border = {
+        top: { style: "thin" },
+        left: { style: "thin" },
+        bottom: { style: "thin" },
+        right: { style: "thin" },
+      };
+    });
+
+    // Add Data
+    const rows = riwayatList.map((riwayat, index) => [
+      index + 1,
+      riwayat.idKamar,
+      riwayat.namaTamu,
+      riwayat.noTelepon,
+      new Date(riwayat.tanggalCheckIn).toLocaleDateString("id-ID", {
+        timeZone: "Asia/Jakarta",
+      }),
+      new Date(riwayat.tanggalCheckOut).toLocaleDateString("id-ID", {
+        timeZone: "Asia/Jakarta",
+      }),
+      `Rp. ${riwayat.harga.toLocaleString()}`,
+    ]);
+
+    rows.forEach((row) => worksheet.addRow(row));
+
+    // Atur Lebar Kolom Otomatis
+    const allData = [headers, ...rows];
+    worksheet.columns.forEach((column, index) => {
+      const maxLength = Math.max(
+        ...allData.map((row) => (row[index] ? row[index].toString().length : 0))
+      );
+      column.width = maxLength + 2; // Tambahkan margin
+    });
+
+    // Style Konten
+    worksheet.eachRow((row, rowNumber) => {
+      row.eachCell((cell) => {
+        cell.border = {
+          top: { style: "thin" },
+          left: { style: "thin" },
+          bottom: { style: "thin" },
+          right: { style: "thin" },
+        };
+        if (rowNumber > 1) {
+          cell.alignment = { vertical: "center", horizontal: "left" };
+        }
+      });
+    });
+
+    // Simpan File
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      saveAs(new Blob([buffer]), "Riwayat_Reservasi.xlsx");
+    });
   };
 
   // Fungsi untuk menghapus riwayat berdasarkan index
@@ -93,11 +171,11 @@ const DaftarRiwayat = () => {
           Kembali
         </Link>
         <button
-          onClick={printRiwayat}
+          onClick={exportToExcel}
           className="bg-gradient-to-r from-orange-500 to-red-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg shadow-sm flex items-center transition"
         >
-          <FaFilePdf className="mr-2" />
-          Cetak PDF
+          <FaFileExcel className="mr-2" />
+          Ekspor Excel
         </button>
       </div>
 

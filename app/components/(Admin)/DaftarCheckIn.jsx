@@ -55,6 +55,7 @@ const DaftarCheckIn = () => {
     // Buat objek dengan status yang diperbarui
     const updatedCheckInStatus = {
       ...checkInToCheckOut,
+      id: Date.now(),
       statusBooking: "checkout",
       statusKamar: "kosong",
     };

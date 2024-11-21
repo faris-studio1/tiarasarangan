@@ -23,8 +23,7 @@ const TambahTamu = () => {
       namaLengkap: e.target.nama_lengkap.value,
       noHp: e.target.no_hp.value,
       keperluan: e.target.keperluan.value,
-      tanggal: new Date().toLocaleDateString(),
-      waktu: new Date().toLocaleTimeString(),
+      tanggalWaktu: new Date().toLocaleString(),
     };
 
     const updatedTamuList = [...tamuList, newTamu];

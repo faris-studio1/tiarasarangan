@@ -149,6 +149,7 @@ const DaftarBooking = () => {
     // Buat objek dengan status yang diperbarui
     const updatedBookingStatus = {
       ...bookingToCheckIn,
+      id: Date.now(),
       statusBooking: "checkin",
       statusKamar: "checked",
     };
@@ -169,14 +170,15 @@ const DaftarBooking = () => {
     localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
     localStorage.setItem("checkInList", JSON.stringify(newCheckInList));
 
-    // Data tamu baru untuk disimpan
+    // Data tamu baru untuk disimpaN
     const newTamu = {
       id: Date.now(),
       namaLengkap: updatedBookingStatus.namaTamu,
       noHp: updatedBookingStatus.noTelepon,
       keperluan: "Check-in",
-      tanggal: new Date().toLocaleDateString(),
-      waktu: new Date().toLocaleTimeString(),
+      tanggalWaktu: `${new Date().toLocaleString("id-ID", {
+        timeZone: "Asia/Jakarta",
+      })} WIB`,
     };
 
     // Tambahkan data tamu baru ke daftar tamu di localStorage

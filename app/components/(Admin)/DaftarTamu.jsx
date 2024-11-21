@@ -126,7 +126,7 @@ const DaftarTamu = () => {
                     {indexOfFirstItem + index + 1}
                   </td>
                   <td className="border px-6 py-2 dark:border-gray-700">
-                    {tamu.tanggal} {tamu.waktu}
+                    {tamu.tanggalWaktu}
                   </td>
                   <td className="border px-6 py-2 dark:border-gray-700">
                     {tamu.namaLengkap}
