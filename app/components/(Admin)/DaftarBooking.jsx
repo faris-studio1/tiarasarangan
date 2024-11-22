@@ -16,7 +16,10 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useContext, useState, useCallback } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
 
 const DaftarBooking = () => {
   const getCurrentDate = () => {
@@ -28,6 +31,7 @@ const DaftarBooking = () => {
   };
 
   const router = useRouter();
+  const { isDarkMode } = useContext(DarkModeContext);
   const today = new Date().toISOString().split("T")[0];
 
   const [bookingList, setBookingList] = useState([]);
@@ -107,7 +111,12 @@ const DaftarBooking = () => {
     localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
     setEditingBooking(null);
     setIsEditing(false);
-    alert("Data berhasil diperbarui!");
+    // Menampilkan notifikasi sukses
+    toast.success("Data berhasil diperbarui!", {
+      position: "top-center",
+      theme: isDarkMode ? "dark" : "light",
+    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
+    setTimeout(() => {}, 1000);
   };
 
   const calculateHarga = (tanggalCheckIn, tanggalCheckOut, hargaKamar) => {
@@ -129,16 +138,29 @@ const DaftarBooking = () => {
     );
     setBookingList(updatedBookingList);
     localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
-    alert("Hapus Data Berhasil!");
-    setFilteredBookingList(updatedBookingList);
+    // Menampilkan notifikasi sukses
+    toast.success("Hapus Data Berhasil!", {
+      position: "top-center",
+      theme: isDarkMode ? "dark" : "light",
+    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
+    setTimeout(() => {
+      setFilteredBookingList(updatedBookingList);
+    }, 1000);
   };
 
   // Fungsi untuk menghapus semua data booking
   const handleClearData = () => {
     localStorage.removeItem("bookingList");
     setBookingList([]);
-    alert("Hapus Seluruh Data Booking Berhasil!");
-    setFilteredBookingList([]);
+
+    // Menampilkan notifikasi sukses
+    toast.success("Hapus Seluruh Data Booking Berhasil!", {
+      position: "top-center",
+      theme: isDarkMode ? "dark" : "light",
+    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
+    setTimeout(() => {
+      setFilteredBookingList([]);
+    }, 1000);
   };
 
   // Fungsi untuk checkIn berdasarkan index
@@ -186,9 +208,14 @@ const DaftarBooking = () => {
     const updatedTamuList = [newTamu, ...existingTamuList];
     setTamuList(updatedTamuList);
     localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
-
-    alert("Check-In Berhasil!");
-    router.push("/DaftarCheckIn");
+    // Menampilkan notifikasi sukses
+    toast.success("Check-In Berhasil!", {
+      position: "top-center",
+      theme: isDarkMode ? "dark" : "light",
+    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
+    setTimeout(() => {
+      router.push("/DaftarCheckIn");
+    }, 1000);
   };
 
   // Fungsi untuk navigasi ke halaman tambah tamu
@@ -315,6 +342,7 @@ const DaftarBooking = () => {
 
   return (
     <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 pt-14 pb-6 md:pt-10 px-8 overflow-y-auto">
+      <ToastContainer className="absolute mt-16" />
       <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8 flex items-center justify-center">
         <FaBookOpen className="text-yellow-500 mr-2" />
         Daftar Booking

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import {
   FaHotel,
   FaSave,
@@ -12,6 +12,9 @@ import {
 } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
 
 const TambahBooking = () => {
   const getCurrentDate = () => {
@@ -23,6 +26,7 @@ const TambahBooking = () => {
   };
 
   const router = useRouter();
+  const { isDarkMode } = useContext(DarkModeContext);
   const [selectedRoomId, setSelectedRoomId] = useState("000");
   const [selectedRoomType, setSelectedRoomType] = useState("none");
   const [selectedBed, setSelectedBed] = useState("-");
@@ -128,8 +132,15 @@ const TambahBooking = () => {
     const updatedBookingList = [...bookingList, newBooking];
     setBookingList(updatedBookingList);
     localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
-    alert("Booking Berhasil!");
-    router.push("/DaftarBooking");
+
+    // Menampilkan notifikasi sukses
+    toast.success("Booking Berhasil!", {
+      position: "top-center",
+      theme: isDarkMode ? "dark" : "light",
+    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
+    setTimeout(() => {
+      router.push("/DaftarBooking");
+    }, 1000);
   };
 
   const handleClear = (e) => {
@@ -204,6 +215,7 @@ const TambahBooking = () => {
 
   return (
     <div className="fixed left-0 top-14 bottom-10 right-0 md:left-64 py-14 md:pt-10 px-8 overflow-y-auto">
+      <ToastContainer className="absolute mt-16" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 py-8 px-12 rounded-xl shadow-lg md:col-span-2">
           <div className="flex flex-col md:flex-row items-center justify-between mb-4 md:mb-8">
