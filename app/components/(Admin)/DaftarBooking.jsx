@@ -17,9 +17,11 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useContext, useState, useCallback } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const DaftarBooking = () => {
   const getCurrentDate = () => {
@@ -107,16 +109,39 @@ const DaftarBooking = () => {
     const updatedBookingList = bookingList.map((booking) =>
       booking.id === editingBooking.id ? editingBooking : booking
     );
-    setBookingList(updatedBookingList);
-    localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
-    setEditingBooking(null);
-    setIsEditing(false);
-    // Menampilkan notifikasi sukses
-    toast.success("Data berhasil diperbarui!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {}, 1000);
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Pastikan data yang Anda masukkan sudah benar.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, perbarui!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire({
+          title: "Update Berhasil!",
+          text: "Data booking berhasil diperbarui.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          setBookingList(updatedBookingList);
+          localStorage.setItem(
+            "bookingList",
+            JSON.stringify(updatedBookingList)
+          );
+          setEditingBooking(null);
+          setIsEditing(false);
+          setFilteredBookingList(updatedBookingList);
+        });
+      }
+    });
   };
 
   const calculateHarga = (tanggalCheckIn, tanggalCheckOut, hargaKamar) => {
@@ -136,86 +161,155 @@ const DaftarBooking = () => {
     const updatedBookingList = bookingList.filter(
       (booking) => booking.id !== id
     );
-    setBookingList(updatedBookingList);
-    localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
-    // Menampilkan notifikasi sukses
-    toast.success("Hapus Data Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredBookingList(updatedBookingList);
-    }, 1000);
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Berhasil!",
+          text: "Data booking berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          setBookingList(updatedBookingList);
+          localStorage.setItem(
+            "bookingList",
+            JSON.stringify(updatedBookingList)
+          );
+          setFilteredBookingList(updatedBookingList);
+        });
+      }
+    });
   };
 
   // Fungsi untuk menghapus semua data booking
   const handleClearData = () => {
-    localStorage.removeItem("bookingList");
-    setBookingList([]);
-
-    // Menampilkan notifikasi sukses
-    toast.success("Hapus Seluruh Data Booking Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredBookingList([]);
-    }, 1000);
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Semuanya Berhasil!",
+          text: "Semua data booking berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          localStorage.removeItem("bookingList");
+          setBookingList([]);
+          setFilteredBookingList([]);
+        });
+      }
+    });
   };
 
   // Fungsi untuk checkIn berdasarkan index
   const handleCheckInClick = (id) => {
-    // Temukan booking yang cocok berdasarkan id
-    const bookingToCheckIn = bookingList.find((booking) => booking.id === id);
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Pastikan tamu telah datang.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, simpan!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Check-In Berhasil!",
+          text: "Data check-in berhasil disimpan.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          // Temukan booking yang cocok berdasarkan id
+          const bookingToCheckIn = bookingList.find(
+            (booking) => booking.id === id
+          );
 
-    // Buat objek dengan status yang diperbarui
-    const updatedBookingStatus = {
-      ...bookingToCheckIn,
-      id: Date.now(),
-      statusBooking: "checkin",
-      statusKamar: "checked",
-    };
+          // Buat objek dengan status yang diperbarui
+          const updatedBookingStatus = {
+            ...bookingToCheckIn,
+            id: Date.now(),
+            statusBooking: "checkin",
+            statusKamar: "checked",
+          };
 
-    // Filter bookingList untuk menghapus booking yang di-check-in
-    const updatedBookingList = bookingList.filter(
-      (booking) => booking.id !== id
-    );
+          // Filter bookingList untuk menghapus booking yang di-check-in
+          const updatedBookingList = bookingList.filter(
+            (booking) => booking.id !== id
+          );
 
-    // Tambahkan booking yang diperbarui ke checkInList
-    const newCheckInList = [...checkInList, updatedBookingStatus];
+          // Tambahkan booking yang diperbarui ke checkInList
+          const newCheckInList = [...checkInList, updatedBookingStatus];
 
-    // Update state dengan daftar booking dan check-in yang baru
-    setBookingList(updatedBookingList);
-    setCheckInList(newCheckInList);
+          // Update state dengan daftar booking dan check-in yang baru
+          setBookingList(updatedBookingList);
+          setCheckInList(newCheckInList);
 
-    // Simpan perubahan ke localStorage
-    localStorage.setItem("bookingList", JSON.stringify(updatedBookingList));
-    localStorage.setItem("checkInList", JSON.stringify(newCheckInList));
+          // Simpan perubahan ke localStorage
+          localStorage.setItem(
+            "bookingList",
+            JSON.stringify(updatedBookingList)
+          );
+          localStorage.setItem("checkInList", JSON.stringify(newCheckInList));
 
-    // Data tamu baru untuk disimpaN
-    const newTamu = {
-      id: Date.now(),
-      namaLengkap: updatedBookingStatus.namaTamu,
-      noHp: updatedBookingStatus.noTelepon,
-      keperluan: "Check-in",
-      tanggalWaktu: `${new Date().toLocaleString("id-ID", {
-        timeZone: "Asia/Jakarta",
-      })} WIB`,
-    };
+          // Data tamu baru untuk disimpaN
+          const newTamu = {
+            id: Date.now(),
+            namaLengkap: updatedBookingStatus.namaTamu,
+            noHp: updatedBookingStatus.noTelepon,
+            keperluan: "Check-in",
+            tanggalWaktu: `${new Date().toLocaleString("id-ID", {
+              timeZone: "Asia/Jakarta",
+            })} WIB`,
+          };
 
-    // Tambahkan data tamu baru ke daftar tamu di localStorage
-    const existingTamuList = JSON.parse(localStorage.getItem("tamuList")) || [];
-    const updatedTamuList = [newTamu, ...existingTamuList];
-    setTamuList(updatedTamuList);
-    localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
-    // Menampilkan notifikasi sukses
-    toast.success("Check-In Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      router.push("/DaftarCheckIn");
-    }, 1000);
+          // Tambahkan data tamu baru ke daftar tamu di localStorage
+          const existingTamuList =
+            JSON.parse(localStorage.getItem("tamuList")) || [];
+          const updatedTamuList = [newTamu, ...existingTamuList];
+          setTamuList(updatedTamuList);
+          localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
+
+          router.push("/DaftarCheckIn"); // Mengarahkan ke halaman lain setelah notifikasi
+        });
+      }
+    });
   };
 
   // Fungsi untuk navigasi ke halaman tambah tamu
@@ -342,7 +436,6 @@ const DaftarBooking = () => {
 
   return (
     <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 pt-14 pb-6 md:pt-10 px-8 overflow-y-auto">
-      <ToastContainer className="absolute mt-16" />
       <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8 flex items-center justify-center">
         <FaBookOpen className="text-yellow-500 mr-2" />
         Daftar Booking

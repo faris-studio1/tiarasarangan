@@ -9,9 +9,11 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useContext, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const DaftarTamu = () => {
   const router = useRouter();
@@ -45,30 +47,70 @@ const DaftarTamu = () => {
   // Fungsi untuk menghapus tamu berdasarkan id
   const handleDelete = (id) => {
     const updatedTamuList = tamuList.filter((tamu) => tamu.id !== id);
-    setTamuList(updatedTamuList);
-    localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
     // Menampilkan notifikasi sukses
-    toast.success("Hapus Data Tamu Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredTamuList(updatedTamuList);
-    }, 1000);
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Berhasil!",
+          text: "Data tamu berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          setTamuList(updatedTamuList);
+          localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
+          setFilteredTamuList(updatedTamuList);
+        });
+      }
+    });
   };
 
   // Fungsi untuk clear semua data tamu
   const handleClearData = () => {
-    localStorage.removeItem("tamuList");
-    setTamuList([]);
-    // Menampilkan notifikasi sukses
-    toast.success("Hapus Seluruh Data Tamu Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredTamuList([]);
-    }, 1000);
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus semuanya!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Semuanya Berhasil!",
+          text: "Semua data tamu berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          localStorage.removeItem("tamuList");
+          setTamuList([]);
+          setFilteredTamuList([]);
+        });
+      }
+    });
   };
 
   // Fungsi untuk navigasi ke halaman tambah tamu
@@ -89,7 +131,6 @@ const DaftarTamu = () => {
 
   return (
     <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 pt-14 pb-6 md:pt-10 px-8 overflow-y-auto">
-      <ToastContainer className="absolute mt-16" />
       <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8 flex items-center justify-center">
         <FaUsers className="text-yellow-500 mr-2" />
         Daftar Tamu

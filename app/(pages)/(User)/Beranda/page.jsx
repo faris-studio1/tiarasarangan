@@ -28,11 +28,11 @@ const BerandaPage = () => {
       <div id="fasilitas">
         <FasilitasComponent />
       </div>
-      <div id="galeri">
-        <GaleriComponent />
-      </div>
       <div id="testimoni">
         <TestimoniComponent />
+      </div>
+      <div id="galeri">
+        <GaleriComponent />
       </div>
       <div id="artikel">
         <ArtikelComponent />

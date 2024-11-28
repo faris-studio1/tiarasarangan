@@ -18,9 +18,12 @@ module.exports = {
       },
       height: {
         448: "22rem",
-        768: "48rem",
+        768: "50rem",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwind-scrollbar-hide"),
+    require("tailwindcss-textshadow"),
+  ],
 };

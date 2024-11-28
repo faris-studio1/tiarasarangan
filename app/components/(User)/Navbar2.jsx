@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 const menuItems = [
-  { name: "Beranda", target: "#beranda" },
+  { name: "Beranda", target: "/Beranda" },
   { name: "Tentang", target: "#tentang" },
   { name: "Tipe Kamar", target: "#tipe-kamar" },
   { name: "Fasilitas", target: "#fasilitas" },
@@ -23,7 +23,7 @@ const menuItems = [
   { name: "FAQ", target: "#faq" },
 ];
 
-const NavbarComponent = () => {
+const Navbar2Component = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,14 +49,10 @@ const NavbarComponent = () => {
   return (
     <header
       id="navbar"
-      className={`fixed left-0 right-0 top-0 z-10 transition-all duration-300 ${
-        scrolled
-          ? "bg-white bg-opacity-100 text-black shadow-lg"
-          : "bg-opacity-0 text-white"
-      }`}
+      className={`fixed left-0 right-0 top-0 z-10 transition-all duration-300 bg-white bg-opacity-100 text-black shadow-lg"`}
     >
       <div
-        className={`space-x-4 bg-black bg-opacity-40 text-white text-xs md:text-sm transition-all duration-300 py-3 md:py-4 ${
+        className={`space-x-4 bg-black bg-opacity-70 text-white text-xs md:text-sm transition-all duration-300 py-3 md:py-4 ${
           scrolled ? "hidden" : "flex"
         }`}
       >
@@ -134,17 +130,10 @@ const NavbarComponent = () => {
         </div>
       </div>
       <div
-        className={`container mx-auto flex justify-between items-center px-6 ${
-          scrolled ? "py-2 md:py-3" : "py-3 md:py-4"
-        }`}
+        className={`container mx-auto flex justify-between items-center px-6 py-2 md:py-3`}
       >
         <Link href="/Login">
-          <h1
-            id="logo"
-            className={`logo text-3xl md:text-4xl ${
-              scrolled ? "text-red-700" : "text-white"
-            }`}
-          >
+          <h1 id="logo" className={`logo text-3xl md:text-4xl text-red-700`}>
             Villa Tiara
           </h1>
         </Link>
@@ -159,17 +148,13 @@ const NavbarComponent = () => {
           </button>
           {/* Menu Desktop */}
           <ul
-            className={`hidden md:flex space-x-8 text-md py-2 font-bold ${
-              scrolled ? "text-gray-800" : "text-white"
-            }`}
+            className={`hidden md:flex space-x-8 text-md py-2 font-bold text-gray-800`}
           >
             {menuItems.map((item) => (
               <li key={item.target}>
                 <a
                   href={item.target}
-                  className={`cursor-pointer ${
-                    scrolled ? "hover:text-red-500" : "hover:text-yellow-300"
-                  }`}
+                  className={`cursor-pointer hover:text-red-500`}
                 >
                   {item.name}
                 </a>
@@ -212,4 +197,4 @@ const NavbarComponent = () => {
   );
 };
 
-export default NavbarComponent;
+export default Navbar2Component;

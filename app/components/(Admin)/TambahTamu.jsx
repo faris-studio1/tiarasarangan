@@ -4,9 +4,11 @@ import React, { useState, useEffect, useContext } from "react";
 import { FaUserPlus, FaArrowLeft, FaUserCheck } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const TambahTamu = () => {
   const router = useRouter();
@@ -33,19 +35,22 @@ const TambahTamu = () => {
     const updatedTamuList = [...tamuList, newTamu];
     setTamuList(updatedTamuList);
     localStorage.setItem("tamuList", JSON.stringify(updatedTamuList));
-    // Menampilkan notifikasi sukses
-    toast.success("Isi Buku Tamu Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Tambah Tamu Berhasil!",
+      text: "Data tamu berhasil disimpan.",
+      icon: "success",
+      confirmButtonText: "OK",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+    }).then(() => {
       router.push("/DaftarTamu");
-    }, 1000);
+    });
   };
 
   return (
     <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 pt-14 pb-6 md:pt-10 md:px-8 overflow-y-auto">
-      <ToastContainer className="absolute mt-16" />
       <div className="bg-white dark:bg-gray-800 mx-10 md:mx-40 px-12 py-8 rounded-xl shadow-lg">
         <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-gray-800 dark:text-gray-200 flex items-center justify-center">
           <FaUserPlus className="text-yellow-500 mr-2" /> Tambah Tamu Baru

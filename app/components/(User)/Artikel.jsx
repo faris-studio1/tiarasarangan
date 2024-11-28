@@ -1,84 +1,96 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ArtikelComponent = () => {
-  const articles = [
-    {
-      id: 1,
-      src: "https://th.bing.com/th/id/OIP.eJXmC9pNGT3CqtVbtv3kaAHaEm?rs=1&pid=ImgDetMain",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      date: "Oktober 12, 2024",
-    },
-    {
-      id: 2,
-      src: "https://th.bing.com/th/id/OIP.eJXmC9pNGT3CqtVbtv3kaAHaEm?rs=1&pid=ImgDetMain",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      date: "Oktober 12, 2024",
-    },
-    {
-      id: 3,
-      src: "https://th.bing.com/th/id/OIP.eJXmC9pNGT3CqtVbtv3kaAHaEm?rs=1&pid=ImgDetMain",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      date: "Oktober 12, 2024",
-    },
-  ];
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    // Ambil data artikel dari localStorage
+    const storedArticles = localStorage.getItem("artikelList");
+    if (storedArticles) {
+      const parsedArticles = JSON.parse(storedArticles);
+
+      // Balikkan urutan artikel terlebih dahulu, lalu ambil 4 artikel teratas
+      const reversedArticles = parsedArticles.reverse();
+      setArticles(reversedArticles.slice(0, 4));
+    }
+  }, []);
 
   return (
-    <div className="container mx-auto px-5 md:px-20 py-16">
-      <section className="text-center mb-4">
-        <h1 className="text-3xl md:text-5xl font-bold">Artikel</h1>
-        <p className="text-gray-700 text-md py-6">
-          Temukan informasi menarik seputar wisata di Telaga Sarangan
-        </p>
-      </section>
-      {/* Grid untuk blog posts */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        {articles.map((article) => (
-          <div
-            key={article.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105"
-          >
-            <Image
-              className="w-full h-48 object-cover"
-              src={article.src}
-              alt={`Blog ${article.id}`}
-              width={500}
-              height={300}
-              layout="responsive"
-            />
-            <div className="p-6">
-              <div className="flex space-x-2 mb-2">
-                <span className="bg-red-600 text-white text-sm font-semibold px-2 py-1 rounded-full">
-                  Blog
-                </span>
-                <span className="bg-red-600 text-white text-sm font-semibold px-2 py-1 rounded-full">
-                  Featured
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{article.title}</h3>
-              <p className="text-gray-500 text-sm mb-4">
-                Posted on {article.date}
-              </p>
-              <Link
-                href="/Artikel"
-                className="inline-block py-2 px-4 bg-orange-600 text-white rounded-lg hover:bg-yellow-500 transition duration-300"
-              >
-                View More
-              </Link>
-            </div>
-          </div>
-        ))}
-      </section>
-      <div className="px-5 text-white text-center">
-        <Link
-          href="/Artikel"
-          className="inline-flex text-lg font-semibold py-2 px-4 bg-red-600 text-white rounded-lg shadow-lg flex items-center justify-center hover:bg-yellow-500 transition duration-300 transform hover:-translate-y-1"
+    <div className="py-16">
+      <div className="container mx-auto px-5 md:px-20">
+        {/* Title Section */}
+        <section className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+            Artikel <span className="text-red-600">Terbaru</span>
+          </h1>
+          <p className="text-gray-600 text-md mt-4 max-w-2xl mx-auto">
+            Dapatkan informasi dan tips menarik seputar wisata, pengalaman, dan
+            banyak lagi di Telaga Sarangan.
+          </p>
+        </section>
+
+        {/* Articles Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-8"
         >
-          <span>Selengkapnya</span>
-          <FaArrowRight className="ml-2" />
-        </Link>
+          {articles.length > 0 ? (
+            articles.map((article) => (
+              <motion.div
+                key={article.id}
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden group"
+              >
+                <Image
+                  className="w-full h-48 object-cover group-hover:opacity-90 transition duration-300"
+                  src={article.src}
+                  alt={article.title}
+                  width={500}
+                  height={300}
+                  layout="responsive"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-800 group-hover:text-red-600 transition duration-300">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-500 text-sm mt-2 mb-4">
+                    {article.date}
+                  </p>
+                  <Link
+                    href={`/Artikel/${article.id}`}
+                    className="inline-flex items-center py-2 px-4 border-2 border-gray-300 text-xs font-semibold rounded-lg hover:bg-red-500 hover:text-white transition duration-300"
+                  >
+                    Baca Selengkapnya <FaAngleRight className="ml-2" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))
+          ) : (
+            <p className="text-gray-500 text-center col-span-4">
+              Tidak ada artikel untuk ditampilkan.
+            </p>
+          )}
+        </motion.section>
+
+        {/* View More Section */}
+        <div className="text-center mt-12">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="inline-block py-3 px-6 bg-red-600 text-white text-lg font-bold rounded-full shadow-lg cursor-pointer hover:bg-yellow-500 transition duration-300"
+          >
+            <Link href="/Artikel" className="flex items-center justify-center">
+              <span>Lihat Semua Artikel</span>
+              <FaAngleRight className="ml-2" />
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

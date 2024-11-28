@@ -1,141 +1,130 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Glide from "@glidejs/glide";
+import React from "react";
 import {
-  FaArrowRight,
   FaParking,
   FaWifi,
   FaConciergeBell,
   FaUtensils,
   FaMapMarkerAlt,
-  FaChevronCircleLeft,
-  FaChevronCircleRight,
+  FaAngleRight,
 } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
 
 const FasilitasComponent = () => {
-  useEffect(() => {
-    new Glide(".glide").mount();
-  }, []);
-
   return (
-    <div className="bg-red-600">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8 p-14 rounded-xl shadow-md animate-fadeIn">
-        {/* GlideJS Section */}
-        <section className="w-full md:w-1/2 rounded-xl">
-          <div className="glide rounded-xl">
-            <div className="glide__track rounded-xl" data-glide-el="track">
-              <ul className="glide__slides rounded-xl">
-                <li className="glide__slide">
-                  <Image
-                    className="object-cover rounded-xl hover:scale-105"
-                    src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-74c2b886c0303fb917779d9ac5940ae4.jpeg"
-                    alt="Tiara Village"
-                    width={800}
-                    height={420}
-                    layout="responsive"
-                  />
-                </li>
-                <li className="glide__slide">
-                  <Image
-                    className="object-cover rounded-xl hover:scale-105"
-                    src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-147640908bf0184df67e31f2c26009fa.jpeg"
-                    alt="Villa Tiara"
-                    width={800}
-                    height={420}
-                    layout="responsive"
-                  />
-                </li>
-                <li className="glide__slide">
-                  <Image
-                    className="object-cover rounded-xl hover:scale-105"
-                    src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-5c9c6a49c99dee99b1ea62a8b1122086.jpeg"
-                    alt="Beautiful Villa"
-                    width={800}
-                    height={420}
-                    layout="responsive"
-                  />
-                </li>
-              </ul>
-            </div>
-            <div className="glide__arrows" data-glide-el="controls">
-              <button
-                className="glide__arrow glide__arrow--left"
-                data-glide-dir="<"
-              >
-                <FaChevronCircleLeft />
-              </button>
-              <button
-                className="glide__arrow glide__arrow--right"
-                data-glide-dir=">"
-              >
-                <FaChevronCircleRight />
-              </button>
-            </div>
-            <div className="glide__bullets" data-glide-el="controls[nav]">
-              <button className="glide__bullet" data-glide-dir="=0"></button>
-              <button className="glide__bullet" data-glide-dir="=1"></button>
-              <button className="glide__bullet" data-glide-dir="=2"></button>
-            </div>
-          </div>
+    <div className="bg-gradient-to-b from-red-500 to-red-700 py-16">
+      <div className="container mx-auto px-6 md:px-20">
+        {/* Title Section */}
+        <section className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white">
+            Fasilitas Villa
+          </h1>
+          <p className="text-md text-gray-100 mt-4 max-w-2xl mx-auto">
+            Temukan beragam fasilitas modern dan premium untuk mendukung
+            kenyamanan Anda selama menginap.
+          </p>
         </section>
 
-        {/* Fasilitas Section */}
-        <section className="w-full pl-4">
-          <h2 className="text-5xl font-bold mb-8 text-white">
-            Fasilitas Villa
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Fasilitas Utama */}
-            <div className="col-span-1 text-white">
-              <h3 className="text-xl font-medium mb-3">Fasilitas Utama</h3>
-              <div className="flex items-center mb-2 text-sm">
-                <FaUtensils className="mr-2" /> <span>Restoran</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaParking className="mr-2" /> <span>Parkir</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaConciergeBell className="mr-2" />{" "}
-                <span>Resepsionis 24 Jam</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaWifi className="mr-2" /> <span>WiFi</span>
-              </div>
+        {/* Fasilitas Utama */}
+        <div className="grid grid-cols-1">
+          <section className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-10 px-5">
+            <div className="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+              <FaUtensils className="text-5xl text-red-600 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-800">Restoran</h3>
+              <p className="text-gray-600 text-md mt-2">
+                Nikmati berbagai hidangan lezat dengan pemandangan alam yang
+                memukau.
+              </p>
             </div>
-            {/* Tempat di Sekitar Villa */}
-            <div className="col-span-2 text-white mb-6">
-              <h3 className="text-xl font-medium mb-3">
-                Tempat di Sekitar Villa
+            <div className="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+              <FaParking className="text-5xl text-red-600 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-800">
+                Parkir Luas
               </h3>
-              <div className="flex items-center mb-2 text-sm">
-                <FaMapMarkerAlt className="mr-2" />{" "}
-                <span>Telaga Sarangan (383 m)</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaMapMarkerAlt className="mr-2" />{" "}
-                <span>Bank Jatim KCP Plaosan (2.79 km)</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaMapMarkerAlt className="mr-2" />{" "}
-                <span>Mojosemi Forest Park (1.23 km)</span>
-              </div>
-              <div className="flex items-center mb-2 text-sm">
-                <FaMapMarkerAlt className="mr-2" />{" "}
-                <span>Rumah Retret & Kapel Domus (456 m)</span>
-              </div>
+              <p className="text-gray-600 text-md mt-2">
+                Area parkir yang aman dan nyaman untuk kendaraan Anda.
+              </p>
             </div>
-          </div>
-          <Link
-            href="/Fasilitas"
-            className="inline-flex text-lg font-bold py-2 px-4 text-red-600 bg-white rounded-lg shadow-lg items-center justify-center hover:bg-yellow-500 transition duration-300 transform hover:-translate-y-1"
-          >
-            <span>Selengkapnya</span>
-            <FaArrowRight className="ml-2" />
-          </Link>
-        </section>
+            <div className="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+              <FaWifi className="text-5xl text-red-600 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-800">
+                WiFi Gratis
+              </h3>
+              <p className="text-gray-600 text-md mt-2">
+                Akses internet berkecepatan tinggi di seluruh area villa.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+              <FaConciergeBell className="text-5xl text-red-600 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-800">
+                Resepsionis 24/7
+              </h3>
+              <p className="text-gray-600 text-md mt-2">
+                Pelayanan resepsionis profesional siap membantu kapan saja.
+              </p>
+            </div>
+          </section>
+
+          {/* Nearby Locations */}
+          <h1 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-8">
+            Terdekat dari Villa
+          </h1>
+          <section className="grid grid-cols-2 text-center px-5 gap-6">
+            {/* Telaga Sarangan */}
+            <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="text-4xl text-red-600 mr-4" />
+                <div className="items-start flex flex-col">
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    Telaga Sarangan
+                  </h4>
+                  <p className="text-md text-gray-600">383 m dari lokasi.</p>
+                </div>
+              </div>
+              <FaAngleRight className="text-red-600 text-3xl" />
+            </div>
+            {/* Bank Jatim KCP Plaosan */}
+            <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="text-4xl text-red-600 mr-4" />
+                <div className="items-start flex flex-col">
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    Bank Jatim KCP Plaosan
+                  </h4>
+                  <p className="text-md text-gray-600">2.79 km dari lokasi.</p>
+                </div>
+              </div>
+              <FaAngleRight className="text-red-600 text-3xl" />
+            </div>
+            {/* Mojosemi Forest Park */}
+            <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="text-4xl text-red-600 mr-4" />
+                <div className="items-start flex flex-col">
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    Mojosemi Forest Park
+                  </h4>
+                  <p className="text-md text-gray-600">1.23 km dari lokasi.</p>
+                </div>
+              </div>
+              <FaAngleRight className="text-red-600 text-3xl" />
+            </div>
+            {/* Rumah Retret & Kapel Domus Marlae */}
+            <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="text-4xl text-red-600 mr-4" />
+                <div className="items-start flex flex-col">
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    Rumah Retret & Kapel Domus Marlae
+                  </h4>
+                  <p className="text-md text-gray-600">456 m dari lokasi.</p>
+                </div>
+              </div>
+              <FaAngleRight className="text-red-600 text-3xl" />
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const sections = [
   {
-    title: "TELAGA SARANGAN",
+    title: "VIEW TELAGA SARANGAN",
     caption: "Pemandangan Indah Telaga Sarangan",
     caption2:
       "Nikmati keindahan dan ketenangan Telaga Sarangan, tempat yang sempurna untuk melepas penat dan menikmati alam.",
@@ -27,7 +27,7 @@ const sections = [
 
 function HighlightComponent() {
   return (
-    <div className="container atas bg-red-600 mx-auto py-8 px-4 mb-10 rounded-3xl shadow-xl">
+    <div className="container atas relative bg-red-600 mx-auto py-10 px-4 mb-10 rounded-5xl shadow-xl">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
         {sections.map((section, index) => (
           <div key={index} className="flip-card">
@@ -43,7 +43,7 @@ function HighlightComponent() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black to-transparent rounded-3xl">
                   <div className="absolute inset-8 items-center justify-center">
-                    <h2 className="text-white text-center text-xl font-bold">
+                    <h2 className="text-white text-center text-xl font-extrabold">
                       {section.title}
                     </h2>
                     <p className="text-white text-center text-sm font-normal">
@@ -55,7 +55,7 @@ function HighlightComponent() {
               {/* Sisi Belakang */}
               <div className="flip-card-back rounded-3xl flex items-center justify-center px-14">
                 <div className="text-center">
-                  <h2 className="text-xl font-bold mb-3 text-white">
+                  <h2 className="text-xl font-extrabold mb-3 text-white">
                     {section.title}
                   </h2>
                   <p className="text-white">{section.caption2}</p>

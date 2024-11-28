@@ -1,63 +1,49 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Image from "next/image";
 import Glide from "@glidejs/glide";
 import {
-  FaBed,
-  FaChevronCircleLeft,
-  FaChevronCircleRight,
+  FaChevronLeft,
+  FaChevronRight,
+  FaUser,
+  FaHeart,
+  FaStar,
 } from "react-icons/fa";
+import models1 from "@/public/models1.jpg";
+import models2 from "@/public/models2.jpg";
+import models3 from "@/public/models3.jpg";
 
 const testimonials = [
   {
-    avatar: "NH",
+    avatar: models1,
     name: "Nurul Halimah",
-    type: "Backpacking",
-    rating: "9.0 / 10",
+    type: "Deluxe",
+    rating: "9.0",
     date: "02 Feb 2023",
     review:
       "Kamar yang nyaman dan fasilitas yang lengkap. Pelayanan sangat ramah dan membantu. Sangat puas menginap di sini!",
     likes: 25,
   },
   {
-    avatar: "AJ",
+    avatar: models2,
     name: "Baihaqi Rusdi",
     type: "Family",
-    rating: "8.8 / 10",
+    rating: "8.8",
     date: "15 Mar 2024",
     review:
       "Lokasi strategis dan pemandangan indah. Kamar bersih dan luas, cocok untuk keluarga. Anak-anak sangat menikmati!",
     likes: 30,
   },
   {
-    avatar: "UL",
+    avatar: models3,
     name: "Ulil Ardian",
-    type: "Business",
-    rating: "9.2 / 10",
+    type: "Standar",
+    rating: "9.2",
     date: "05 Apr 2024",
     review:
       "Tempat yang sempurna untuk perjalanan bisnis. WiFi cepat dan fasilitas meeting room sangat baik. Akan kembali lagi!",
     likes: 45,
-  },
-  {
-    avatar: "FZ",
-    name: "Fauzan Hapsah",
-    type: "Solo",
-    rating: "9.5 / 10",
-    date: "10 Mei 2024",
-    review:
-      "Tempat yang nyaman untuk beristirahat. Kamar bersih dan tenang, serta staf sangat ramah. Sangat direkomendasikan!",
-    likes: 35,
-  },
-  {
-    avatar: "RL",
-    name: "Rizka Listyowati",
-    type: "Couple",
-    rating: "9.3 / 10",
-    date: "21 Jun 2023",
-    review:
-      "Pengalaman menginap yang sangat menyenangkan. Villa yang indah dengan suasana yang romantis. Layanan sangat memuaskan!",
-    likes: 40,
   },
 ];
 
@@ -67,98 +53,113 @@ const TestimoniComponent = () => {
       type: "carousel",
       perView: 1,
       focusAt: "center",
-      gap: 30,
+      gap: 0,
       autoplay: 5000,
     });
 
     glide.mount();
 
-    // Cleanup function untuk meng-unmount glide ketika komponen di-unmount
     return () => glide.destroy();
   }, []);
 
   return (
-    <div className="bg-red-600">
-      <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-5 px-6 py-6 md:px-16">
-        <section className="md:w-2/6 text-center md:text-left items-center justify-center text-white">
-          <h1 className="text-6xl my-5 font-bold">Testimoni</h1>
-          <p className="text-xl leading-relaxed mb-6">
-            Dengarkan apa yang pelanggan kami katakan tentang pengalaman mereka
-            menginap di Villa Tiara.
+    <div className="py-16">
+      <div className="container mx-auto px-6 md:px-12">
+        {/* Title Section */}
+        <section className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+            Testimoni <span className="text-red-600">Tamu</span>
+          </h2>
+          <p className="text-lg text-gray-600 mt-4">
+            Temukan pengalaman tamu kami di Villa Tiara Sarangan.
           </p>
         </section>
-        <section className="w-full md:w-4/6">
-          <div className="glide">
-            <div className="glide__track" data-glide-el="track">
-              <ul className="glide__slides">
-                {testimonials.map((testimonial, index) => (
-                  <li className="glide__slide" key={index}>
-                    <div className="border rounded-lg shadow-lg p-8 max-w-2xl mx-20 my-8 bg-white">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-xl font-bold text-white">
-                          {testimonial.avatar}
-                        </div>
-                        <div className="flex-1">
-                          <h2 className="text-lg font-semibold">
-                            {testimonial.name}
-                          </h2>
-                          <p className="text-sm text-gray-500">
-                            {testimonial.type}
-                          </p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-2.5 py-0.5 rounded">
-                            {testimonial.rating}
-                          </span>
-                        </div>
+
+        {/* Testimonials Section */}
+        <div className="glide">
+          <div
+            className="glide__track rounded-3xl shadow-xl"
+            data-glide-el="track"
+          >
+            <ul className="glide__slides rounded-3xl bg-white items-center flex justify-center">
+              {testimonials.map((testimonial, index) => (
+                <li
+                  className="glide__slide py-10 flex px-36 items-center justify-center"
+                  key={index}
+                >
+                  {/* Avatar Section */}
+                  <div className="w-52 h-52 flex items-center justify-center bg-gray-100 rounded-full">
+                    <Image
+                      src={testimonial.avatar}
+                      alt={testimonial.type}
+                      className="rounded-full transform group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Content Section */}
+                  <div className="flex-1 rounded-xl ml-10">
+                    <div className="flex justify-between items-start rounded-xl">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-sm text-gray-500">
+                          {testimonial.type}
+                        </p>
                       </div>
-                      <p className="text-gray-700 leading-relaxed mb-4">
-                        {testimonial.review}
-                      </p>
-                      <div className="flex items-center justify-between text-sm text-gray-600">
-                        <div className="flex items-center space-x-2">
-                          <FaBed className="text-xl text-gray-500" />
-                          <span>
-                            {testimonial.likes} orang menyukai review ini
-                          </span>
-                        </div>
-                        <span className="text-gray-400">
-                          {testimonial.date}
+                      <div className="flex items-center text-yellow-400">
+                        {[...Array(5)].map((_, starIndex) => (
+                          <FaStar
+                            key={starIndex}
+                            className={
+                              starIndex < Math.round(testimonial.rating / 2)
+                                ? "text-yellow-400"
+                                : "text-gray-300"
+                            }
+                          />
+                        ))}
+                        <span className="text-sm text-gray-600 ml-2">
+                          {testimonial.rating}
                         </span>
                       </div>
                     </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="glide__arrows" data-glide-el="controls">
-              <button
-                className="glide__arrow glide__arrow--left"
-                data-glide-dir="<"
-              >
-                <FaChevronCircleLeft className="text-white text-2xl" />
-              </button>
-              <button
-                className="glide__arrow glide__arrow--right"
-                data-glide-dir=">"
-              >
-                <FaChevronCircleRight className="text-white text-2xl" />
-              </button>
-            </div>
-            <div
-              className="glide__bullets mt-4 flex justify-center"
-              data-glide-el="controls[nav]"
-            >
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  className="glide__bullet mx-1 w-3 h-3 bg-white rounded-full"
-                  data-glide-dir={`=${index}`}
-                ></button>
+
+                    <p className="text-gray-600 italic mt-4 mb-6 text-lg">
+                      "{testimonial.review}"
+                    </p>
+
+                    <div className="flex justify-between items-center text-sm text-gray-500 rounded-xl">
+                      <span>{testimonial.date}</span>
+                      <div className="flex items-center">
+                        <FaHeart className="text-red-600 mr-1" />
+                        {testimonial.likes}
+                      </div>
+                    </div>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        </section>
+
+          {/* Navigation Arrows */}
+          <div
+            className="glide__arrows flex justify-between mt-6"
+            data-glide-el="controls"
+          >
+            <button
+              className="glide__arrow glide__arrow--left bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow-lg"
+              data-glide-dir="<"
+            >
+              <FaChevronLeft className="text-gray-600 text-xl" />
+            </button>
+            <button
+              className="glide__arrow glide__arrow--right bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow-lg"
+              data-glide-dir=">"
+            >
+              <FaChevronRight className="text-gray-600 text-xl" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

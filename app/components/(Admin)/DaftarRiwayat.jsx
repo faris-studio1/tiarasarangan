@@ -11,9 +11,11 @@ import Link from "next/link";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import { useEffect, useContext, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { DarkModeContext } from "@/app/(contexts)/DarkModeContext";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 const DaftarRiwayat = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -131,30 +133,73 @@ const DaftarRiwayat = () => {
     const updatedRiwayatList = riwayatList.filter(
       (riwayat) => riwayat.id !== id
     );
-    setRiwayatList(updatedRiwayatList);
-    localStorage.setItem("riwayatList", JSON.stringify(updatedRiwayatList));
     // Menampilkan notifikasi sukses
-    toast.success("Hapus Data Riwayat Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredRiwayatList(updatedRiwayatList);
-    }, 1000);
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Berhasil!",
+          text: "Data riwayat berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          setRiwayatList(updatedRiwayatList);
+          localStorage.setItem(
+            "riwayatList",
+            JSON.stringify(updatedRiwayatList)
+          );
+          setFilteredRiwayatList(updatedRiwayatList);
+        });
+      }
+    });
   };
 
   // Fungsi untuk menghapus semua data riwayat
   const handleClearData = () => {
-    localStorage.removeItem("riwayatList");
-    setRiwayatList([]);
-    // Menampilkan notifikasi sukses
-    toast.success("Hapus Seluruh Data Riwayat Berhasil!", {
-      position: "top-center",
-      theme: isDarkMode ? "dark" : "light",
-    }); // Mengarahkan ke halaman lain setelah sedikit penundaan
-    setTimeout(() => {
-      setFilteredRiwayatList([]);
-    }, 1000);
+    // Menampilkan notifikasi sukses menggunakan sweetalert2
+    MySwal.fire({
+      title: "Apakah Anda yakin?",
+      text: "Anda tidak akan dapat mengembalikan data ini!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, hapus semuanya!",
+      cancelButtonText: "Batal",
+      background: isDarkMode ? "#333" : "#fff",
+      color: isDarkMode ? "#fff" : "#000",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Menampilkan notifikasi sukses menggunakan sweetalert2
+        MySwal.fire({
+          title: "Hapus Semuanya Berhasil!",
+          text: "Semua data riwayat berhasil dihapus.",
+          icon: "success",
+          confirmButtonText: "OK",
+          background: isDarkMode ? "#333" : "#fff",
+          color: isDarkMode ? "#fff" : "#000",
+          confirmButtonColor: isDarkMode ? "#f59e0b" : "#f59e0b",
+        }).then(() => {
+          localStorage.removeItem("riwayatList");
+          setRiwayatList([]);
+          setFilteredRiwayatList([]);
+        });
+      }
+    });
   };
 
   // Hitung indeks untuk item yang akan ditampilkan pada halaman saat ini
@@ -173,7 +218,6 @@ const DaftarRiwayat = () => {
 
   return (
     <div className="fixed left-0 top-16 bottom-10 right-0 md:left-64 pt-14 pb-6 md:pt-10 px-8 overflow-y-auto">
-      <ToastContainer className="absolute mt-16" />
       <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8 flex items-center justify-center">
         <FaBookOpen className="text-yellow-500 mr-2" />
         Daftar Riwayat

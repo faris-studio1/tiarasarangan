@@ -1,47 +1,89 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 
 const TentangComponent = () => {
+  const images = [
+    "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-0317d107c478aa5272bfdcde77220bcc.jpeg",
+    "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-147640908bf0184df67e31f2c26009fa.jpeg",
+    "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-9fc40c87b7c08e70296547d0c97dc3cd.jpeg",
+  ];
+
   return (
-    <div className="bg-white">
-      <div className="py-10 flex flex-col md:flex-row items-center md:space-x-10">
-        <section className="md:w-3/6 text-center md:text-left flex items-center justify-center mb-6 md:mb-0 px-4 animate-slideIn">
-          <div className="md:pl-10">
-            <p className="text-lg md:text-xl text-gray-600 mb-4 font-semibold animate-fadeIn">
+    <div className="bg-white py-16">
+      <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-16 px-6">
+        <section className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+          <div className="space-y-6">
+            <p className="text-lg font-extrabold text-red-600 uppercase tracking-wider">
               Tentang Villa
             </p>
-            <h1 className="text-4xl md:text-5xl text-black mb-4 font-bold animate-slideIn">
-              Temukan Kenyamanan & Keindahan di
-              <span className="text-red-600"> Villa Tiara Sarangan</span>
+            <h1 className="text-5xl font-extrabold text-gray-800 leading-tight">
+              Temukan Kenyamanan & Keindahan di{" "}
+              <span className="text-red-600">Villa Tiara Sarangan</span>
             </h1>
-            <p className="text-gray-700 text-sm md:text-md leading-relaxed mb-6 animate-fadeIn">
+            <p className="text-md text-gray-700 leading-relaxed">
               Villa Tiara Sarangan menawarkan pengalaman menginap nyaman dan
               mewah, sejalan dengan keindahan Telaga Sarangan. Terletak di
               kawasan menawan Telaga Sarangan, Villa Tiara adalah pilihan ideal
               bagi yang mencari kenyamanan modern di tengah suasana alami.
-              Nikmati ketenangan Telaga Sarangan, tempat sempurna untuk
-              melarikan diri dari hiruk-pikuk kota.
             </p>
             <Link
               href="/tentang-villa"
-              className="inline-flex text-lg font-semibold py-2 px-4 bg-red-600 text-white rounded-lg shadow-lg flex items-center justify-center hover:bg-yellow-500 transition duration-300 transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-4 bg-red-600 text-white text-lg font-semibold rounded-full shadow-md hover:bg-red-700 transition duration-300"
             >
               <span>Selengkapnya</span>
-              <FaArrowRight className="ml-2" />
+              <FaAngleRight className="ml-2" />
             </Link>
           </div>
         </section>
-        <section className="md:w-3/6 mb-6 md:mb-0 p-4 relative right-0">
-          <Image
-            className="w-full object-cover rounded-tl-5xl rounded-bl-5xl shadow-lg transition-transform duration-300 hover:scale-105"
-            src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-0317d107c478aa5272bfdcde77220bcc.jpeg"
-            alt="Tiara Village"
-            width={800}
-            height={500}
-            layout="responsive"
-          />
+
+        <section className="md:w-1/2 relative">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay, EffectFade]}
+            spaceBetween={30}
+            effect="fade"
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              renderBullet: (index, className) =>
+                `<span class="${className} custom-pagination-bullet"></span>`,
+            }}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            className="rounded-5xl text-red-500 shadow-xl"
+          >
+            {images.map((src, index) => (
+              <SwiperSlide key={index}>
+                <Image
+                  className="w-full h-auto object-cover rounded-5xl"
+                  src={src}
+                  alt={`Villa Tiara Sarangan ${index}`}
+                  width={800}
+                  height={500}
+                  layout="responsive"
+                />
+              </SwiperSlide>
+            ))}
+
+            {/* Custom Navigation Buttons */}
+            <div className="custom-prev absolute top-1/2 left-4 z-10 text-white text-2xl cursor-pointer border-2 bg-gray-500 bg-opacity-50 border-white rounded-md p-2 shadow-lg hover:bg-red-500">
+              ❮
+            </div>
+            <div className="custom-next absolute top-1/2 right-4 z-10 text-white text-2xl cursor-pointer border-2 bg-gray-500 bg-opacity-50 border-white rounded-md p-2 shadow-lg hover:bg-red-500">
+              ❯
+            </div>
+          </Swiper>
         </section>
       </div>
     </div>
