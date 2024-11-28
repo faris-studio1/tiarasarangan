@@ -3,16 +3,10 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Glide from "@glidejs/glide";
-import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaUser,
-  FaHeart,
-  FaStar,
-} from "react-icons/fa";
-import models1 from "@/public/models1.jpg";
-import models2 from "@/public/models2.jpg";
-import models3 from "@/public/models3.jpg";
+import { FaChevronLeft, FaChevronRight, FaHeart, FaStar } from "react-icons/fa";
+import models1 from "@/public/models1.png";
+import models2 from "@/public/models2.png";
+import models3 from "@/public/models3.png";
 
 const testimonials = [
   {
