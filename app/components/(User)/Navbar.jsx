@@ -73,24 +73,24 @@ const NavbarComponent = () => {
               <span>No. 193, Jl, Raya Telaga Sarangan 63361 Magetan</span>
             </a>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6281335623403"
               target="_blank"
               rel="noreferrer"
               className="flex items-center hover:text-yellow-300"
               title="WhatsApp"
             >
               <FaPhoneAlt className="mr-2 text-red-500" />
-              <span>0831-2760-5430</span>
+              <span>0813-3562-3403</span>
             </a>
             <a
-              href="mailto:email@example.com"
+              href="mailto:tiarasarangan2@gmail.com"
               target="_blank"
               rel="noreferrer"
               className="flex items-center hover:text-yellow-300"
               title="Email"
             >
               <FaEnvelope className="mr-2 text-red-500" />
-              <span>villatiara@gmail.com</span>
+              <span>tiarasarangan2@gmail.com</span>
             </a>
           </div>
           <div className="hidden md:flex space-x-4 items-center">
@@ -104,7 +104,7 @@ const NavbarComponent = () => {
               <FaInstagram className="mr-2" />
             </a>
             <a
-              href="https://x.com/@username"
+              href=""
               target="_blank"
               rel="noreferrer"
               className="hover:text-yellow-300"
@@ -122,7 +122,7 @@ const NavbarComponent = () => {
               <FaTiktok className="mr-2" />
             </a>
             <a
-              href="https://youtube.com/c/username"
+              href="https://youtube.com/@villatiarasarangan9576"
               target="_blank"
               rel="noreferrer"
               className="hover:text-yellow-300"

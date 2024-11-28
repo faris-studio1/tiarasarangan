@@ -4,15 +4,11 @@ import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import artikelLists from "./ArtikelDummy.jsx"; // Pastikan import ini sesuai dengan file yang Anda gunakan
 
 const ArtikelAllComponent = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    // Simpan artikelDummy ke localStorage
-    localStorage.setItem("artikelList", JSON.stringify(artikelLists));
-
     // Ambil data dari localStorage
     const storedArticles = localStorage.getItem("artikelList");
     if (storedArticles) {

@@ -108,7 +108,7 @@ const FooterComponent = () => {
                 <FaInstagram className="mr-2" />
               </a>
               <a
-                href="https://youtube.com/c/username"
+                href="https://youtube.com/@villatiarasarangan9576"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-yellow-300"
@@ -117,7 +117,7 @@ const FooterComponent = () => {
                 <FaYoutube className="mr-2" />
               </a>
               <a
-                href="https://x.com/@username"
+                href=""
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-yellow-300"
@@ -147,7 +147,7 @@ const FooterComponent = () => {
       </div>
 
       {/* Copyright */}
-      <div className="text-center py-5 bg-red-600">
+      <div className="text-center py-3 bg-red-600">
         <p className="text-sm font-bold">
           &copy; 2024 Villa Tiara Sarangan | All Rights Reserved
         </p>

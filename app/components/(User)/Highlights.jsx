@@ -3,24 +3,24 @@ import Image from "next/image";
 
 const sections = [
   {
-    title: "VIEW TELAGA SARANGAN",
+    title: "TELAGA SARANGAN",
     caption: "Pemandangan Indah Telaga Sarangan",
     caption2:
-      "Nikmati keindahan dan ketenangan Telaga Sarangan, tempat yang sempurna untuk melepas penat dan menikmati alam.",
+      "Nikmati keindahan Telaga Sarangan dengan udara yang sejuk, tempat yang sempurna untuk melepas penat dan menikmati alam bersama keluarga, kerabat maupun pasangan.",
     img: "https://img.inews.co.id/media/1200/files/inews_new/2019/08/29/Sarangan.jpg",
   },
   {
     title: "BALKON & MEET ROOM",
     caption: "Ruang Nyaman untuk Pertemuan ",
     caption2:
-      "Ruang pertemuan nyaman dengan pemandangan indah, cocok untuk ngobrol santai, bekerja, atau bertemu dengan teman.",
-    img: "https://voenews.com.br/wp-content/uploads/2020/06/A-vista-de-tirara-o-folego-do-Blue-Mountain-Resort-Spa-em-Campos-do-Jord%C3%A3o-SP.jpg",
+      "Ruang pertemuan nyaman dengan pemandangan indah Telaga Sarangan, ideal untuk meeting, ngobrol santai, bekerja, atau berkumpul bersama keluarga, kerabat, hingga rekan kerja.",
+    img: "https://content.skyscnr.com/available/1450394671/1450394671_WxH.jpg",
   },
   {
-    title: "KAFE VILLA",
+    title: "TIARA CAFÉ",
     caption: "Tempat Bersantai dan Menikmati Hidangan",
     caption2:
-      "Cafe Tiara menghadirkan suasana hangat dan nyaman, tempat terbaik untuk bersantai sambil menikmati hidangan lezat.",
+      "Cafe Tiara menghadirkan kenyamanan dengan pemandangan indah sekitar Telaga Sarangan, tempat terbaik untuk bersantai sambil menikmati hidangan lezat dengan harga terjangkau",
     img: "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-9e1d7420b3c3b1187f707d713260c357.jpeg",
   },
 ];

@@ -19,18 +19,19 @@ const TentangComponent = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-16 px-6">
         <section className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
           <div className="space-y-6">
-            <p className="text-lg font-extrabold text-red-600 uppercase tracking-wider">
-              Tentang Villa
+            <p className="text-md font-extrabold text-red-600 uppercase tracking-wider">
+              Tentang Villa Tiara Sarangan
             </p>
             <h1 className="text-5xl font-extrabold text-gray-800 leading-tight">
-              Temukan Kenyamanan & Keindahan di{" "}
+              Nikmati Pengalaman Tak Terlupakan di{" "}
               <span className="text-red-600">Villa Tiara Sarangan</span>
             </h1>
             <p className="text-md text-gray-700 leading-relaxed">
-              Villa Tiara Sarangan menawarkan pengalaman menginap nyaman dan
-              mewah, sejalan dengan keindahan Telaga Sarangan. Terletak di
-              kawasan menawan Telaga Sarangan, Villa Tiara adalah pilihan ideal
-              bagi yang mencari kenyamanan modern di tengah suasana alami.
+              Villa Tiara Sarangan menawarkan pemandangan indah Telaga Sarangan
+              dan akses dekat dan mudah ke destinasi wisata Sarangan dan
+              Tawangmangu. Harga yang terjangkau dan pelayanan maksimal
+              membuatnya ideal bagi Anda yang ingin berlibur dengan nyaman tanpa
+              menguras kantong.
             </p>
             <Link
               href="/tentang-villa"
