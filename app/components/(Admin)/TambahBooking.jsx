@@ -76,6 +76,7 @@ const TambahBooking = () => {
   // Memperbarui daftar kamar setiap kali tanggal yang dipilih berubah
   useEffect(() => {
     checkRoomAvailabilityByDate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate, bookingList, checkInList, riwayatList]);
 
   // Fungsi untuk menangani klik pada tombol kamar

@@ -119,7 +119,7 @@ const TestimoniComponent = () => {
                     </div>
 
                     <p className="text-gray-600 italic mt-4 mb-6 text-lg">
-                      "{testimonial.review}"
+                      &quot;{testimonial.review}&quot;
                     </p>
 
                     <div className="flex justify-between items-center text-sm text-gray-500 rounded-xl">
