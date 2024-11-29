@@ -7,14 +7,15 @@ const FooterComponent = () => {
     <footer className="bg-gray-800 text-white pt-10">
       <div className="container mx-auto px-5 md:px-20">
         {/* Section CTA */}
-        <div className="bg-white text-black rounded-lg p-6 mb-10 flex flex-col md:flex-row items-center justify-between">
+        <div className="bg-white text-black rounded-lg p-6 mb-10 flex flex-col md:flex-row items-center justify-between shadow-lg hover:shadow-xl transition-shadow duration-300">
           <h2 className="text-lg md:text-xl font-semibold text-center md:text-left mb-4 md:mb-0">
-            Ingin pengalaman menginap yang tak terlupakan? <br />
-            Konsultasikan kebutuhan akomodasi Anda sekarang juga!
+            Tertarik untuk menginap di Villa Tiara Sarangan?
+            <br />
+            Tunggu Apalagi?! <b>SEGERA PESAN</b> sebelum <b>KAMAR KEHABISAN!</b>
           </h2>
           <a
-            href="https://wa.me/6283127605430"
-            className="bg-green-500 text-white px-6 py-2 rounded-md text-lg hover:bg-green-400 transition duration-300"
+            href="https://wa.me/6281335623403"
+            className="bg-green-500 text-white px-6 py-2 rounded-md text-lg font-semibold hover:bg-green-600 hover:scale-105 transform transition-all duration-300"
           >
             Hubungi kami
           </a>

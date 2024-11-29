@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
-import { FaStar } from "react-icons/fa"; // Import icon bintang
 import Image from "next/image";
 import Standart from "@/public/Standart.JPG";
 import Family from "@/public/Family.JPG";
@@ -12,23 +11,20 @@ const TipeKamarComponent = () => {
     {
       type: "Standar",
       description:
-        "Kamar dengan tempat tidur double sliding, ideal untuk pasangan. Dilengkapi fasilitas modern.",
+        "Kamar dengan satu 1 double bed dan 1 sliding bed, ideal untuk pasangan serta kerabat.",
       img: Standart,
-      stars: 3, // Tambahkan jumlah bintang
     },
     {
       type: "Family",
       description:
-        "Kamar keluarga dengan 1 double bed dan 1 single bed. Cocok untuk keluarga kecil.",
+        "Kamar dengan fasilitas 1 double bad dan 1 single bed secara terpisah, ideal untuk keluarga kecil.",
       img: Family,
-      stars: 4, // Tambahkan jumlah bintang
     },
     {
       type: "Deluxe",
       description:
-        "Kamar deluxe dengan 2 double bed, menawarkan kenyamanan ekstra untuk grup atau keluarga.",
+        "Kamar dengan 2 double bed, menawarkan kenyamanan extra untuk grup rombongan, kerabat, atau keluarga.",
       img: Deluxe,
-      stars: 5, // Tambahkan jumlah bintang
     },
   ];
 
@@ -69,11 +65,7 @@ const TipeKamarComponent = () => {
                 <h2 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-red-600 transition-colors duration-300">
                   {room.type}
                 </h2>
-                <div className="flex mb-3">
-                  {[...Array(room.stars)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-500 mr-1" />
-                  ))}
-                </div>
+
                 <p className="text-gray-600 text-md mb-6">{room.description}</p>
 
                 <Link

@@ -1,133 +1,239 @@
 import React from "react";
-import UserTemplate from "@/app/(templates)/(User)/UserTemplate";
+import UserTemplate2 from "@/app/(templates)/(User)/UserTemplate2";
 import {
-  FaBed,
   FaConciergeBell,
-  FaWifi,
   FaParking,
-  FaTree,
   FaUtensils,
+  FaCoffee,
+  FaChalkboardTeacher,
+  FaWifi,
+  FaBed,
+  FaTree,
+  FaInstagram,
+  FaTwitter,
+  FaTiktok,
+  FaYoutube,
+  FaAngleRight,
+  FaWater,
+  FaCampground,
+  FaTint,
+  FaSeedling,
 } from "react-icons/fa";
-import { GiMountainCave } from "react-icons/gi";
-import { IoIosWalk } from "react-icons/io";
 
 const TentangPage = () => {
   return (
-    <UserTemplate>
-      <div className="tentang-container p-6 bg-gray-50 text-gray-800">
-        <section className="intro-section text-center mb-8">
-          <h1 className="text-3xl font-bold text-blue-800">
-            Tentang Villa Tiara Sarangan
-          </h1>
-          <p className="mt-4 text-lg">
-            Villa Tiara Sarangan adalah penginapan strategis dekat destinasi
-            wisata populer Telaga Sarangan di Magetan, Jawa Timur. Dengan
-            fasilitas lengkap dan harga terjangkau, villa ini cocok untuk agenda
-            healing Anda bersama keluarga.
-          </p>
-        </section>
-
-        <section className="why-choose mb-8">
-          <h2 className="text-2xl font-semibold text-blue-700">
-            Kenapa Harus Menginap di Villa Tiara Sarangan
-          </h2>
-          <p className="mt-2 text-lg">
-            Villa ini menawarkan pemandangan indah Telaga Sarangan dan akses
-            mudah ke destinasi wisata. Harga yang terjangkau dan pelayanan
-            maksimal membuatnya ideal bagi Anda yang ingin berlibur dengan
-            nyaman tanpa menguras kantong.
-          </p>
-        </section>
-
-        <section className="facilities mb-8">
-          <h2 className="text-2xl font-semibold text-blue-700">
-            Fasilitas Utama
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-4">
-            <div className="facility-item flex items-center">
-              <FaConciergeBell className="text-3xl text-blue-500 mr-4" />
-              <span className="text-lg">Resepsionis 24 Jam</span>
-            </div>
-            <div className="facility-item flex items-center">
-              <FaUtensils className="text-3xl text-blue-500 mr-4" />
-              <span className="text-lg">Restoran</span>
-            </div>
-            <div className="facility-item flex items-center">
-              <FaWifi className="text-3xl text-blue-500 mr-4" />
-              <span className="text-lg">WiFi Gratis</span>
-            </div>
-            <div className="facility-item flex items-center">
-              <FaParking className="text-3xl text-blue-500 mr-4" />
-              <span className="text-lg">Parkir</span>
-            </div>
-            <div className="facility-item flex items-center">
-              <FaBed className="text-3xl text-blue-500 mr-4" />
-              <span className="text-lg">Kamar dengan Balkon</span>
-            </div>
-          </div>
-        </section>
-
-        <section className="room-types mb-8">
-          <h2 className="text-2xl font-semibold text-blue-700">Jenis Kamar</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="room-item bg-white p-4 rounded shadow-lg">
-              <h3 className="text-xl font-bold text-blue-600">
-                Kamar Keluarga
-              </h3>
-              <p className="mt-2 text-gray-700">
-                Kamar berukuran 13 m² ini bisa menampung hingga 3 tamu. Tersedia
-                1 double bed, 1 twin bed, kamar mandi, TV, WiFi, dan balkon.
-              </p>
-            </div>
-            <div className="room-item bg-white p-4 rounded shadow-lg">
-              <h3 className="text-xl font-bold text-blue-600">
-                Kamar Double Deluxe
-              </h3>
-              <p className="mt-2 text-gray-700">
-                Kamar seluas 12 m² untuk 2 tamu, dengan 1 double bed, kamar
-                mandi, TV, WiFi, dan balkon.
-              </p>
+    <UserTemplate2>
+      <div className="tentang-container py-10 px-20 mt-24 text-gray-800">
+        {/* Hero Section */}
+        <section
+          className="hero-section relative text-center bg-cover bg-center rounded-2xl overflow-hidden shadow-xl mb-12"
+          style={{
+            backgroundImage:
+              "url(https://www.hdwallpapers.in/download/white_leaves_branches_white_background_hd_white_background-1920x1080.jpg)",
+          }}
+        >
+          <div className="bg-red-600 px-10 md:px-40 py-10 text-white">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-shadow-xl">
+              Tentang Villa
+            </h1>
+            <p className="text-sm md:text-md font-light mb-4 text-shadow-md">
+              Villa Tiara Sarangan adalah penginapan strategis dekat destinasi
+              wisata populer Telaga Sarangan di Magetan, Jawa Timur. Dengan
+              fasilitas lengkap dan harga terjangkau, villa ini cocok untuk
+              agenda liburan Anda bersama keluarga.
+            </p>
+            <div className="flex justify-center mt-6 space-x-4">
+              <a
+                href="https://instagram.com/villatiara.sarangan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram className="text-lg text-white hover:text-yellow-400 cursor-pointer" />
+              </a>
+              <a
+                href="https://twitter.com/villatiara_sarangan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="text-lg text-white hover:text-yellow-400 cursor-pointer" />
+              </a>
+              <a
+                href="https://tiktok.com/@villatiarasarangan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTiktok className="text-lg text-white hover:text-yellow-400 cursor-pointer" />
+              </a>
+              <a
+                href="https://youtube.com/@villatiarasarangan9576"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaYoutube className="text-lg text-white hover:text-yellow-400 cursor-pointer" />
+              </a>
             </div>
           </div>
         </section>
 
-        <section className="nearby-attractions mb-8">
-          <h2 className="text-2xl font-semibold text-blue-700">
-            Tempat Wisata Dekat Villa
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            <div className="attraction-item flex items-center bg-white p-4 rounded shadow-lg">
-              <GiMountainCave className="text-3xl text-green-500 mr-4" />
-              <div>
-                <h3 className="text-xl font-bold">Telaga Sarangan</h3>
-                <p className="text-gray-700">
-                  Danau alami untuk berkuda, naik speed boat, dan kulineran.
-                </p>
+        {/* Why Choose Us */}
+        <section className="why-choose mb-12">
+          <div className="text-center mx-auto mb-10">
+            <h2 className="text-3xl font-extrabold mb-4">
+              Kenapa Harus Menginap di <br />
+              <span className="text-red-700">Villa Tiara Sarangan?</span>
+            </h2>
+            <p className="text-md justify-center font-light text-gray-700 max-w-3xl mx-auto">
+              Villa Tiara Sarangan adalah pilihan ideal bagi Anda yang mencari
+              penginapan Sarangan murah dengan suasana mewah dan nyaman.
+              Terletak di kawasan wisata Sarangan yang terkenal dengan keindahan
+              Telaga Sarangan, Villa Tiara Sarangan menawarkan pengalaman
+              menginap modern yang tetap menyatu dengan nuansa alami. Dengan
+              lokasi strategis dekat Telaga Sarangan, Villa Tiara Sarangan ini
+              menjadi tempat sempurna untuk bersantai, menikmati pemandangan
+              indah, dan melarikan diri dari hiruk-pikuk kota. Villa Tiara
+              Sarangan memberikan kenyamanan maksimal bagi liburan Anda bersama
+              keluarga, pasangan maupun teman.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <FaConciergeBell />,
+                title: "Resepsionis 24 Jam",
+                description: "Kami siap melayani kebutuhan Anda kapan saja.",
+              },
+              {
+                icon: <FaParking />,
+                title: "Parkir Luas",
+                description: "Area parkir luas yang aman dan nyaman.",
+              },
+              {
+                icon: <FaUtensils />,
+                title: "Restoran",
+                description: "Nikmati hidangan lezat di restoran kami.",
+              },
+              {
+                icon: <FaCoffee />,
+                title: "Café Tiara",
+                description:
+                  "Nikmati minuman dan makanan ringan di Café Tiara.",
+              },
+              {
+                icon: <FaChalkboardTeacher />,
+                title: "Meeting Room",
+                description:
+                  "Ruang pertemuan yang dilengkapi dengan fasilitas lengkap.",
+              },
+              {
+                icon: <FaWifi />,
+                title: "WiFi Gratis",
+                description:
+                  "Tetap terhubung dengan internet cepat di seluruh area villa.",
+              },
+              {
+                icon: <FaBed />,
+                title: "Kamar Nyaman",
+                description:
+                  "Kamar bersih dan nyaman untuk istirahat terbaik Anda.",
+              },
+              {
+                icon: <FaTree />,
+                title: "View Alam",
+                description:
+                  "Dikelilingi pemandangan hijau untuk pengalaman yang menyegarkan.",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="text-4xl text-red-600 mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
-            </div>
-            <div className="attraction-item flex items-center bg-white p-4 rounded shadow-lg">
-              <FaTree className="text-3xl text-green-500 mr-4" />
-              <div>
-                <h3 className="text-xl font-bold">Air Terjun Ngadiloyo</h3>
-                <p className="text-gray-700">
-                  Air terjun dengan jalur trekking sejauh 500 m.
-                </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Facilities */}
+        <section className="facilities mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-extrabold">
+              Jenis Kamar{" "}
+              <span className="text-red-700">Villa Tiara Sarangan</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: <FaBed />, title: "STANDAR" },
+              { icon: <FaBed />, title: "DELUXE" },
+              { icon: <FaBed />, title: "FAMILY" },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="facility-item flex items-center justify-between bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="flex items-center">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-orange-700 mr-4 flex-shrink-0">
+                    <div className="text-3xl text-white">{item.icon}</div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">{item.title}</h3>
+                  </div>
+                </div>
+
+                <div className="flex">
+                  <FaAngleRight className="ml-2 text-2xl text-gray-600" />
+                </div>
               </div>
-            </div>
-            <div className="attraction-item flex items-center bg-white p-4 rounded shadow-lg">
-              <IoIosWalk className="text-3xl text-green-500 mr-4" />
-              <div>
-                <h3 className="text-xl font-bold">Mojosemi Forest Park</h3>
-                <p className="text-gray-700">
-                  Spot foto, high rope adventure, dan zona dino park untuk
-                  anak-anak.
-                </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Nearby Attractions */}
+        <section className="nearby-attractions mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-extrabold">
+              Tempat Wisata Sarangan Dekat
+              <span className="text-red-700"> Villa Tiara Sarangan</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <FaWater />,
+                title: "Telaga Sarangan",
+                description: "850 m dari villa",
+              },
+              {
+                icon: <FaTint />,
+                title: "Air Terjun Ngadiloyo",
+                description: "2.4 km dari villa",
+              },
+              {
+                icon: <FaCampground />,
+                title: "Mojosemi Forest Park",
+                description: "3 km dari villa",
+              },
+              {
+                icon: <FaSeedling />,
+                title: "Agrowisata Strawberry",
+                description: "1.9 km dari villa",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="text-4xl text-green-600 mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </section>
       </div>
-    </UserTemplate>
+    </UserTemplate2>
   );
 };
 

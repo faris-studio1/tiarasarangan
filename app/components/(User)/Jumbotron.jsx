@@ -14,12 +14,12 @@ const JumbotronComponent = () => {
             Nikmati pengalaman menginap di villa terbaik di Sarangan dengan
             pemandangan Telaga Sarangan yang memukau.
           </p>
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10 ">
             <a
               href="https://wa.me/083127605430"
               target="_blank"
               rel="noreferrer"
-              className="bg-gradient-to-r from-red-500 to-red-600 text-white font-bold shadow-xl px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 transition duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center space-x-3"
+              className="bg-red-600 text-white font-bold shadow-xl border-4 border-red-500 px-8 py-4 rounded-full hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:border-yellow-700 transition duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center space-x-3"
             >
               <span className="text-xl font-semibold animate-pulse">
                 Pesan Sekarang

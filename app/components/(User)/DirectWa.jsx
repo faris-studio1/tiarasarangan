@@ -5,7 +5,7 @@ function DirectWaComponent() {
   return (
     <div id="direct-wa" className="fixed bottom-8 right-8 z-50">
       <a
-        href="https://wa.me/083127605430"
+        href="https://wa.me/6281335623403"
         className="whatsapp-logo"
         target="_blank"
         rel="noopener noreferrer"

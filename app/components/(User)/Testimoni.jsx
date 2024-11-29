@@ -62,7 +62,7 @@ const TestimoniComponent = () => {
         {/* Title Section */}
         <section className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800">
-            Testimoni <span className="text-red-600">Tamu</span>
+            Testimoni <span className="text-red-600">Pengunjung</span>
           </h2>
           <p className="text-lg text-gray-600 mt-4">
             Temukan pengalaman tamu kami di Villa Tiara Sarangan.

@@ -25,7 +25,7 @@ const ArtikelComponent = () => {
 
   return (
     <div className="py-16">
-      <div className="container mx-auto px-5 md:px-20">
+      <div className="container mx-auto px-5 md:px-24">
         {/* Title Section */}
         <section className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
