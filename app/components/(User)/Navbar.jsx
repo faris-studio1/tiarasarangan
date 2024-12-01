@@ -135,7 +135,7 @@ const NavbarComponent = () => {
       </div>
       <div
         className={`container mx-auto flex justify-between items-center px-6 ${
-          scrolled ? "py-2 md:py-3" : "py-3 md:py-4"
+          scrolled ? "py-3 md:py-3" : "py-3 md:py-4"
         }`}
       >
         <Link href="/Login">
