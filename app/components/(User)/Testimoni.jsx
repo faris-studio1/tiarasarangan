@@ -75,14 +75,14 @@ const TestimoniComponent = () => {
             className="glide__track rounded-3xl shadow-xl"
             data-glide-el="track"
           >
-            <ul className="glide__slides rounded-3xl bg-white items-center flex justify-center">
+            <ul className="glide__slides rounded-3xl bg-red-600 items-center flex justify-center">
               {testimonials.map((testimonial, index) => (
                 <li
                   className="glide__slide py-10 flex px-24 md:px-36 items-center justify-center"
                   key={index}
                 >
                   {/* Avatar Section */}
-                  <div className="w-52 h-52 hidden md:flex items-center justify-center bg-gray-100 rounded-full">
+                  <div className="w-52 h-52 hidden md:flex items-center justify-center bg-red-600 rounded-full">
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.type}
@@ -94,12 +94,10 @@ const TestimoniComponent = () => {
                   <div className="flex-1 rounded-xl md:ml-10">
                     <div className="md:flex justify-between items-start rounded-xl">
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">
+                        <h3 className="text-xl font-bold text-white">
                           {testimonial.name}
                         </h3>
-                        <p className="text-sm text-gray-500">
-                          {testimonial.type}
-                        </p>
+                        <p className="text-sm text-white">{testimonial.type}</p>
                       </div>
                       <div className="flex items-center text-yellow-400">
                         {[...Array(5)].map((_, starIndex) => (
@@ -108,24 +106,24 @@ const TestimoniComponent = () => {
                             className={
                               starIndex < Math.round(testimonial.rating / 2)
                                 ? "text-yellow-400"
-                                : "text-gray-300"
+                                : "text-white"
                             }
                           />
                         ))}
-                        <span className="text-sm text-gray-600 ml-2">
+                        <span className="text-sm text-white ml-2">
                           {testimonial.rating}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 italic mt-4 mb-6 text-lg">
+                    <p className="text-white italic mt-4 mb-6 text-lg">
                       &quot;{testimonial.review}&quot;
                     </p>
 
-                    <div className="flex justify-between items-center text-sm text-gray-500 rounded-xl">
+                    <div className="flex justify-between items-center text-sm text-white rounded-xl">
                       <span>{testimonial.date}</span>
                       <div className="flex items-center">
-                        <FaHeart className="text-red-600 mr-1" />
+                        <FaHeart className="text-white mr-1" />
                         {testimonial.likes}
                       </div>
                     </div>
@@ -141,16 +139,16 @@ const TestimoniComponent = () => {
             data-glide-el="controls"
           >
             <button
-              className="glide__arrow glide__arrow--left bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow-lg"
+              className="glide__arrow glide__arrow--left bg-white hover:bg-gray-700 rounded-full p-2 shadow-lg"
               data-glide-dir="<"
             >
-              <FaChevronLeft className="text-gray-600 text-xl" />
+              <FaChevronLeft className="text-white text-xl" />
             </button>
             <button
-              className="glide__arrow glide__arrow--right bg-gray-200 hover:bg-gray-300 rounded-full p-2 shadow-lg"
+              className="glide__arrow glide__arrow--right bg-white hover:bg-gray-700 rounded-full p-2 shadow-lg"
               data-glide-dir=">"
             >
-              <FaChevronRight className="text-gray-600 text-xl" />
+              <FaChevronRight className="text-white text-xl" />
             </button>
           </div>
         </div>
