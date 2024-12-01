@@ -11,7 +11,7 @@ const FaqComponent = () => {
 
   return (
     <div className="bg-white">
-      <div className="container py-16 mx-auto px-20">
+      <div className="container py-16 mx-auto px-10 md:px-20">
         <section className="text-center mb-4">
           <h1 className="text-3xl md:text-5xl font-extrabold">
             Pertanyaan <span className="text-red-600">Sering Diajukan</span>

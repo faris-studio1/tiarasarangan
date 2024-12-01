@@ -42,7 +42,7 @@ const ArtikelComponent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-4 gap-8 px-6"
         >
           {articles.length > 0 ? (
             articles.map((article) => (

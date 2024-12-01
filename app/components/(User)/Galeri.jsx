@@ -10,6 +10,19 @@ import { FaAngleRight } from "react-icons/fa";
 
 const GaleriComponent = () => {
   const [gallery, setGallery] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Deteksi mobile jika lebar layar kurang dari 768px
+    };
+    // Tambahkan event listener untuk menangani perubahan ukuran layar
+    window.addEventListener("resize", handleResize);
+    // Panggil handleResize untuk menetapkan nilai awal
+    handleResize();
+    // Hapus event listener saat komponen di-unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // Simpan data gambar ke localStorage
@@ -18,9 +31,11 @@ const GaleriComponent = () => {
     const storedGallery = localStorage.getItem("galeriList");
     if (storedGallery) {
       const parsedGallery = JSON.parse(storedGallery);
-      setGallery(parsedGallery.slice(0, 8));
+      setGallery(
+        isMobile ? parsedGallery.slice(0, 4) : parsedGallery.slice(0, 8)
+      );
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="bg-white py-16">
@@ -38,7 +53,7 @@ const GaleriComponent = () => {
 
         {/* Gallery Section */}
         <PhotoProvider>
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-10">
+          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-6 md:mx-10">
             {gallery.map((image, index) => {
               if (index < gallery.length - 1) {
                 return (

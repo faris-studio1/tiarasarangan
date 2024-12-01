@@ -67,7 +67,7 @@ const FasilitasComponent = () => {
           </section>
 
           {/* Nearby Locations */}
-          <section className="grid grid-cols-3 text-center px-5 gap-6">
+          <section className="grid grid-cols-1 md:grid-cols-3 text-center px-5 gap-6">
             {/* Telaga Sarangan */}
             <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
               <div className="flex items-center">

@@ -43,7 +43,7 @@ const TentangComponent = () => {
           </div>
         </section>
 
-        <section className="md:w-1/2 relative">
+        <section className="w-full md:w-1/2 relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectFade]}
             spaceBetween={30}
@@ -62,12 +62,12 @@ const TentangComponent = () => {
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
             }}
-            className="rounded-5xl text-red-500 shadow-xl"
+            className="rounded-3xl md:rounded-5xl text-red-500 shadow-xl"
           >
             {images.map((src, index) => (
               <SwiperSlide key={index}>
                 <Image
-                  className="w-full h-auto object-cover rounded-5xl"
+                  className="w-full h-auto object-cover rounded-3xl md:rounded-5xl"
                   src={src}
                   alt={`Villa Tiara Sarangan ${index}`}
                   width={800}

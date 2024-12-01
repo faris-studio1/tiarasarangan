@@ -14,13 +14,13 @@ import {
 
 const menuItems = [
   { name: "Beranda", target: "/Beranda" },
-  { name: "Tentang", target: "#tentang" },
-  { name: "Tipe Kamar", target: "#tipe-kamar" },
-  { name: "Fasilitas", target: "#fasilitas" },
-  { name: "Testimoni", target: "#testimoni" },
-  { name: "Galeri", target: "#galeri" },
-  { name: "Artikel", target: "#artikel" },
-  { name: "FAQ", target: "#faq" },
+  { name: "Tentang", target: "/Tentang" },
+  { name: "Tipe Kamar", target: "/TipeKamar" },
+  { name: "Fasilitas", target: "/Fasilitas" },
+  { name: "Testimoni", target: "/Testimoni" },
+  { name: "Galeri", target: "/Galeri" },
+  { name: "Artikel", target: "/Artikel" },
+  { name: "FAQ", target: "/Faq" },
 ];
 
 const Navbar2Component = () => {

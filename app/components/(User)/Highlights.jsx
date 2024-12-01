@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: "TIARA CAFÉ",
-    caption: "Tempat Bersantai dan Menikmati Hidangan",
+    caption: "Tempat Bersantai & Menikmati Hidangan",
     caption2:
       "Cafe Tiara menghadirkan kenyamanan dengan pemandangan indah sekitar Telaga Sarangan, tempat terbaik untuk bersantai sambil menikmati hidangan lezat dengan harga terjangkau",
     img: "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-9e1d7420b3c3b1187f707d713260c357.jpeg",
