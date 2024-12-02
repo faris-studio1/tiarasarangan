@@ -22,7 +22,7 @@ const FaqComponent = () => {
           </p>
         </section>
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="border border-gray-200 rounded-lg">
+          <div className="border border-gray-300 rounded-lg">
             <button
               className="w-full text-left p-4 font-semibold flex justify-between items-center focus:outline-none"
               onClick={() => toggleAccordion(1)}
@@ -47,7 +47,7 @@ const FaqComponent = () => {
             )}
           </div>
 
-          <div className="border border-gray-200 rounded-lg">
+          <div className="border border-gray-300 rounded-lg">
             <button
               className="w-full text-left p-4 font-semibold flex justify-between items-center focus:outline-none"
               onClick={() => toggleAccordion(2)}
@@ -70,7 +70,7 @@ const FaqComponent = () => {
             )}
           </div>
 
-          <div className="border border-gray-200 rounded-lg">
+          <div className="border border-gray-300 rounded-lg">
             <button
               className="w-full text-left p-4 font-semibold flex justify-between items-center focus:outline-none"
               onClick={() => toggleAccordion(3)}
@@ -97,7 +97,7 @@ const FaqComponent = () => {
             )}
           </div>
 
-          <div className="border border-gray-200 rounded-lg">
+          <div className="border border-gray-300 rounded-lg">
             <button
               className="w-full text-left p-4 font-semibold flex justify-between items-center focus:outline-none"
               onClick={() => toggleAccordion(4)}

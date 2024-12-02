@@ -28,7 +28,7 @@ const FasilitasComponent = () => {
 
         {/* Fasilitas Utama */}
         <div className="grid grid-cols-1">
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-10 px-5">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 px-5">
             <div className="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
               <FaUtensils className="text-5xl text-red-600 mb-4" />
               <h3 className="text-xl font-semibold text-gray-800">Restoran</h3>
@@ -67,7 +67,7 @@ const FasilitasComponent = () => {
           </section>
 
           {/* Nearby Locations */}
-          <section className="grid grid-cols-1 md:grid-cols-3 text-center px-5 gap-6">
+          <section className="grid grid-cols-1 lg:grid-cols-3 text-center px-5 gap-6">
             {/* Telaga Sarangan */}
             <div className="bg-gray-50 rounded-xl p-4 shadow-md flex justify-between items-center hover:shadow-lg hover:scale-105 transition-transform duration-300">
               <div className="flex items-center">

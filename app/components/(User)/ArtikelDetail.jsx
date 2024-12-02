@@ -44,7 +44,7 @@ const ArtikelDetailComponent = () => {
   }
 
   return (
-    <div className="mt-24 grid md:grid-cols-4 md:gap-4 px-4 md:px-20">
+    <div className="mt-16 md:mt-24 grid md:grid-cols-4 md:gap-4 px-4 md:px-20">
       <div className="container md:col-span-3 mx-auto pt-14 pb-10">
         {/* Tombol Back */}
         <button

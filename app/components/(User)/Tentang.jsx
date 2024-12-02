@@ -16,8 +16,8 @@ const TentangComponent = () => {
 
   return (
     <div className="bg-white py-16">
-      <div className="container mx-auto flex flex-col md:flex-row items-center md:space-x-16 px-6">
-        <section className="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center lg:space-x-16 px-6">
+        <section className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
           <div className="space-y-6">
             <p className="text-md font-extrabold text-red-600 uppercase tracking-wider">
               Tentang Villa Tiara Sarangan
@@ -43,7 +43,7 @@ const TentangComponent = () => {
           </div>
         </section>
 
-        <section className="w-full md:w-1/2 relative">
+        <section className="w-full lg:w-1/2 relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay, EffectFade]}
             spaceBetween={30}

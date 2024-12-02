@@ -22,22 +22,22 @@ const FooterComponent = () => {
         </div>
 
         {/* Section Footer Info */}
-        <div className="grid grid-cols-5 md:grid-cols-8 gap-10 mb-10">
+        <div className="grid grid-cols-5 lg:grid-cols-8 gap-10 mb-10">
           {/* Column 1 - logo/deskripsi */}
-          <div className="col-span-5 md:col-span-2">
+          <div className="col-span-5 lg:col-span-2">
             <h1 className="logo text-3xl md:text-4xl items-center justify-center font-medium transition-colors text-white mb-3">
               Villa Tiara
             </h1>
-            <p className="md:mb-6">
+            <p className="lg:mb-6">
               Villa Tiara Sarangan menawarkan pengalaman menginap nyaman dan
               mewah, sejalan dengan keindahan Telaga Sarangan.
             </p>
           </div>
 
           {/* Column 2 - about & products */}
-          <div className="col-span-2 md:col-span-1">
-            <h2 className="font-bold text-lg md:mb-4">Tentang Villa</h2>
-            <ul className="md:mb-4">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
+            <h2 className="font-bold text-lg lg:mb-4">Tentang Villa</h2>
+            <ul className="lg:mb-4">
               <li>
                 <Link href="/Fasilitas" className="hover:text-yellow-300">
                   Fasilitas
@@ -60,8 +60,8 @@ const FooterComponent = () => {
               </li>
             </ul>
           </div>
-          <div className="col-span-3 md:col-span-1">
-            <h2 className="font-bold text-lg md:mb-4">Tipe Kamar</h2>
+          <div className="col-span-3 md:col-span-1 lg:col-span-1">
+            <h2 className="font-bold text-lg lg:mb-4">Tipe Kamar</h2>
             <ul>
               <li>
                 <Link href="/TipeKamar" className="hover:text-yellow-300">
@@ -82,7 +82,7 @@ const FooterComponent = () => {
           </div>
 
           {/* Column 3 - kantor & sosmed */}
-          <div className="col-span-5 md:col-span-2">
+          <div className="col-span-5 md:col-span-3 lg:col-span-2">
             <h2 className="font-bold text-lg mb-4">Lokasi Villa</h2>
             <p className="mb-2">
               Jl. Veteran No. 31, Marga Jaya, Kec. Bekasi Selatan, <br />
@@ -130,7 +130,7 @@ const FooterComponent = () => {
           </div>
 
           {/* Column 4 - Contact Info with Google Maps */}
-          <div className="col-span-5 md:col-span-2">
+          <div className="col-span-5 lg:col-span-2">
             <div className="rounded-lg overflow-hidden shadow-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.0672071736167!2d111.21916971744382!3d-7.6759242999999895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e798f903e19578f%3A0x963948e3fb35ddef!2sVilla%20Tiara!5e0!3m2!1sid!2sid!4v1728476850917!5m2!1sid!2sid"

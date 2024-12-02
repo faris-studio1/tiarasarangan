@@ -32,13 +32,13 @@ const GaleriAllComponent = () => {
         {/* Title Section */}
         <section className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-            Seluruh <span className="text-red-600">Galeri</span>
+            Semua <span className="text-red-600">Galeri</span>
           </h1>
         </section>
 
         {/* Gallery Section */}
         <PhotoProvider>
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-10">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:mx-10 md:mx-2 lg:mx-10">
             {gallery.map((image, index) => (
               <PhotoView key={index} src={image}>
                 <div className="relative group overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300">

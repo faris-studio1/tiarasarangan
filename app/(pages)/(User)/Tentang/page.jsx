@@ -19,6 +19,7 @@ import {
   FaTint,
   FaSeedling,
 } from "react-icons/fa";
+import Link from "next/link";
 
 const TentangPage = () => {
   return (
@@ -82,7 +83,7 @@ const TentangPage = () => {
               Kenapa Harus Menginap di <br />
               <span className="text-red-700">Villa Tiara Sarangan?</span>
             </h2>
-            <p className="text-md justify-center font-light text-gray-700 max-w-3xl mx-auto">
+            <p className="text-md md:text-justify justify-center font-light text-gray-700 max-w-3xl mx-auto">
               Villa Tiara Sarangan adalah pilihan ideal bagi Anda yang mencari
               penginapan Sarangan murah dengan suasana mewah dan nyaman.
               Terletak di kawasan wisata Sarangan yang terkenal dengan keindahan
@@ -95,7 +96,7 @@ const TentangPage = () => {
               keluarga, pasangan maupun teman.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: <FaConciergeBell />,
@@ -165,26 +166,33 @@ const TentangPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <FaBed />, title: "STANDAR" },
-              { icon: <FaBed />, title: "DELUXE" },
-              { icon: <FaBed />, title: "FAMILY" },
+              { icon: <FaBed />, title: "Kamar Standar", target: "/TipeKamar" },
+              { icon: <FaBed />, title: "Kamar Deluxe", target: "/TipeKamar" },
+              { icon: <FaBed />, title: "Kamar Family", target: "/TipeKamar" },
             ].map((item, index) => (
               <div
                 key={index}
-                className="facility-item flex items-center justify-between bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
+                className="facility-item bg-red-600 p-4 rounded-xl shadow-md hover:shadow-lg transition-all"
               >
-                <div className="flex items-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-orange-700 mr-4 flex-shrink-0">
-                    <div className="text-3xl text-white">{item.icon}</div>
+                <Link
+                  className="flex items-center justify-between"
+                  href={item.target}
+                >
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white mr-4 flex-shrink-0">
+                      <div className="text-3xl text-red-600">{item.icon}</div>
+                    </div>
+                    <div>
+                      <h3 className="text-lg text-white font-extrabold">
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold">{item.title}</h3>
-                  </div>
-                </div>
 
-                <div className="flex">
-                  <FaAngleRight className="ml-2 text-2xl text-gray-600" />
-                </div>
+                  <div className="flex">
+                    <FaAngleRight className="ml-2 text-2xl text-white" />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -198,7 +206,7 @@ const TentangPage = () => {
               <span className="text-red-700"> Villa Tiara Sarangan</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: <FaWater />,

@@ -93,7 +93,7 @@ const NavbarComponent = () => {
               <span>tiarasarangan2@gmail.com</span>
             </a>
           </div>
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="hidden lg:flex space-x-4 items-center">
             <a
               href="https://instagram.com/villatiara.sarangan"
               target="_blank"
@@ -152,14 +152,14 @@ const NavbarComponent = () => {
         <nav>
           <button
             id="menu-toggle"
-            className={`md:hidden text-2xl focus:outline-none font-semibold`}
+            className={`lg:hidden text-2xl focus:outline-none font-semibold`}
             onClick={handleMenuToggle}
           >
             &#9776;
           </button>
           {/* Menu Desktop */}
           <ul
-            className={`hidden md:flex space-x-8 text-md py-2 font-bold ${
+            className={`hidden overflow-y-auto lg:flex space-x-8 text-md py-2 font-bold ${
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >

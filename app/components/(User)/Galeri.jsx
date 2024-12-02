@@ -53,7 +53,7 @@ const GaleriComponent = () => {
 
         {/* Gallery Section */}
         <PhotoProvider>
-          <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mx-6 md:mx-10">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-6 md:mx-10">
             {gallery.map((image, index) => {
               if (index < gallery.length - 1) {
                 return (

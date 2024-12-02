@@ -28,7 +28,7 @@ const sections = [
 function HighlightComponent() {
   return (
     <div className="container atas relative bg-red-600 mx-auto py-10 px-4 mb-10 rounded-4xl shadow-xl">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-8">
         {sections.map((section, index) => (
           <div key={index} className="flip-card">
             <div className="flip-card-inner">

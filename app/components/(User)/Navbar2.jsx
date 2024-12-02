@@ -16,8 +16,6 @@ const menuItems = [
   { name: "Beranda", target: "/Beranda" },
   { name: "Tentang", target: "/Tentang" },
   { name: "Tipe Kamar", target: "/TipeKamar" },
-  { name: "Fasilitas", target: "/Fasilitas" },
-  { name: "Testimoni", target: "/Testimoni" },
   { name: "Galeri", target: "/Galeri" },
   { name: "Artikel", target: "/Artikel" },
   { name: "FAQ", target: "/Faq" },
@@ -89,7 +87,7 @@ const Navbar2Component = () => {
               <span>tiarasarangan2@gmail.com</span>
             </a>
           </div>
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="hidden lg:flex space-x-4 items-center">
             <a
               href="https://instagram.com/villatiara.sarangan"
               target="_blank"
@@ -141,14 +139,14 @@ const Navbar2Component = () => {
         <nav>
           <button
             id="menu-toggle"
-            className={`md:hidden text-2xl focus:outline-none font-semibold`}
+            className={`lg:hidden text-2xl focus:outline-none font-semibold`}
             onClick={handleMenuToggle}
           >
             &#9776;
           </button>
           {/* Menu Desktop */}
           <ul
-            className={`hidden md:flex space-x-8 text-md py-2 font-bold text-gray-800`}
+            className={`hidden overflow-y-auto lg:flex space-x-8 text-md py-2 font-bold text-gray-800`}
           >
             {menuItems.map((item) => (
               <li key={item.target}>

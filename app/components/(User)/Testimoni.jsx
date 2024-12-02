@@ -78,11 +78,11 @@ const TestimoniComponent = () => {
             <ul className="glide__slides rounded-3xl bg-red-600 items-center flex justify-center">
               {testimonials.map((testimonial, index) => (
                 <li
-                  className="glide__slide py-10 flex px-24 md:px-36 items-center justify-center"
+                  className="glide__slide lg:py-10 flex px-24 md:px-36 items-center justify-center"
                   key={index}
                 >
                   {/* Avatar Section */}
-                  <div className="w-52 h-52 hidden md:flex items-center justify-center bg-red-600 rounded-full">
+                  <div className="w-52 h-52 hidden lg:flex items-center justify-center bg-red-600 rounded-full">
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.type}
@@ -92,7 +92,7 @@ const TestimoniComponent = () => {
 
                   {/* Content Section */}
                   <div className="flex-1 rounded-xl md:ml-10">
-                    <div className="md:flex justify-between items-start rounded-xl">
+                    <div className="lg:flex justify-between items-start rounded-xl">
                       <div>
                         <h3 className="text-xl font-bold text-white">
                           {testimonial.name}

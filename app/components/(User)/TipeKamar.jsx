@@ -10,20 +10,23 @@ const TipeKamarComponent = () => {
   const rooms = [
     {
       type: "Standar",
+      target: "/TipeKamar",
       description:
         "Kamar dengan satu 1 double bed dan 1 sliding bed, ideal untuk pasangan serta kerabat.",
       img: Standart,
     },
     {
       type: "Family",
+      target: "/TipeKamar",
       description:
         "Kamar dengan fasilitas 1 double bad dan 1 single bed secara terpisah, ideal untuk keluarga kecil.",
       img: Family,
     },
     {
       type: "Deluxe",
+      target: "/TipeKamar",
       description:
-        "Kamar dengan 2 double bed, menawarkan kenyamanan extra untuk grup rombongan, kerabat, atau keluarga.",
+        "Kamar dengan 2 double bed, menawarkan kenyamanan extra untuk grup rombongan, kerabat, keluarga.",
       img: Deluxe,
     },
   ];
@@ -44,7 +47,7 @@ const TipeKamarComponent = () => {
         </section>
 
         {/* Rooms Section */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-10 md:mx-16">
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:mx-16">
           {rooms.map((room) => (
             <div
               key={room.type}
@@ -69,7 +72,7 @@ const TipeKamarComponent = () => {
                 <p className="text-gray-600 text-md mb-6">{room.description}</p>
 
                 <Link
-                  href="/tipe-kamar"
+                  href={room.target}
                   className="inline-flex items-center px-6 py-3 mb-3 bg-red-600 text-white text-sm font-semibold rounded-full shadow-md hover:bg-yellow-500 transition-transform duration-300 transform hover:scale-105"
                 >
                   Selengkapnya <FaAngleRight className="ml-2" />
