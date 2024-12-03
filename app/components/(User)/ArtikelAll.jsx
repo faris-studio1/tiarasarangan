@@ -48,6 +48,7 @@ const ArtikelAllComponent = () => {
                   alt={`Blog ${article.id}`}
                   width={500}
                   height={300}
+                  loading="lazy"
                   layout="responsive"
                 />
                 <div className="p-6">

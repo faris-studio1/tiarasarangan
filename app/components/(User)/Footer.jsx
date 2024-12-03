@@ -5,20 +5,28 @@ import Link from "next/link";
 const FooterComponent = () => {
   return (
     <footer className="bg-gray-800 text-white pt-10">
-      <div className="container mx-auto px-5 md:px-20">
+      <div className="container mx-auto px-10">
         {/* Section CTA */}
-        <div className="bg-white text-black rounded-lg p-6 mb-10 flex flex-col md:flex-row items-center justify-between shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-lg md:text-xl font-semibold text-center md:text-left mb-4 md:mb-0">
-            Tertarik untuk menginap di Villa Tiara Sarangan?
-            <br />
-            Tunggu Apalagi?! <b>SEGERA PESAN</b> sebelum <b>KAMAR KEHABISAN!</b>
-          </h2>
-          <a
-            href="https://wa.me/6281335623403"
-            className="bg-green-500 text-white px-6 py-2 rounded-md text-lg font-semibold hover:bg-green-600 hover:scale-105 transform transition-all duration-300"
-          >
-            Hubungi kami
-          </a>
+        <div className="relative bg-red-600 text-white rounded-xl p-8 md:p-10 mb-10 shadow-xl overflow-hidden">
+          <div className="relative flex flex-col md:flex-row items-center justify-between">
+            {/* Call to Action Text */}
+            <div className="text-center md:text-left mb-6 md:mb-0">
+              <h2 className="text-xl md:text-3xl font-bold">
+                Menginap Nyaman di <br className="lg:hidden" />
+                <span className="text-yellow-200">Villa Tiara Sarangan</span>
+              </h2>
+              <p className="mt-2 text-md text-white/90">
+                Tunggu apa lagi, segera pesan sebelum kamar kehabisan!
+              </p>
+            </div>
+            {/* Call to Action Button */}
+            <a
+              href="https://wa.me/6281335623403"
+              className="inline-block bg-white text-gray-800 px-8 py-3 rounded-lg text-md font-bold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
+            >
+              Hubungi Kami
+            </a>
+          </div>
         </div>
 
         {/* Section Footer Info */}

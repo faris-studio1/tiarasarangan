@@ -24,15 +24,9 @@ import Link from "next/link";
 const TentangPage = () => {
   return (
     <UserTemplate2>
-      <div className="tentang-container py-10 px-20 mt-24 text-gray-800">
+      <div className="tentang-container py-10 px-10 md:px-20 mt-24 text-gray-800">
         {/* Hero Section */}
-        <section
-          className="hero-section relative text-center bg-cover bg-center rounded-2xl overflow-hidden shadow-xl mb-12"
-          style={{
-            backgroundImage:
-              "url(https://www.hdwallpapers.in/download/white_leaves_branches_white_background_hd_white_background-1920x1080.jpg)",
-          }}
-        >
+        <section className="hero-section relative text-center bg-cover bg-center rounded-2xl overflow-hidden shadow-xl mb-12">
           <div className="bg-red-600 px-10 md:px-40 py-10 text-white">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-shadow-xl">
               Tentang Villa
@@ -211,7 +205,7 @@ const TentangPage = () => {
               {
                 icon: <FaWater />,
                 title: "Telaga Sarangan",
-                description: "850 m dari villa",
+                description: "383 m dari villa",
               },
               {
                 icon: <FaTint />,
@@ -221,7 +215,7 @@ const TentangPage = () => {
               {
                 icon: <FaCampground />,
                 title: "Mojosemi Forest Park",
-                description: "3 km dari villa",
+                description: "1.23 km dari villa",
               },
               {
                 icon: <FaSeedling />,

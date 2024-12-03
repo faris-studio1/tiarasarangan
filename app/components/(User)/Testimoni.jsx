@@ -78,7 +78,7 @@ const TestimoniComponent = () => {
             <ul className="glide__slides rounded-3xl bg-red-600 items-center flex justify-center">
               {testimonials.map((testimonial, index) => (
                 <li
-                  className="glide__slide lg:py-10 flex px-24 md:px-36 items-center justify-center"
+                  className="glide__slide py-10 flex px-24 md:px-36 items-center justify-center"
                   key={index}
                 >
                   {/* Avatar Section */}
@@ -86,6 +86,7 @@ const TestimoniComponent = () => {
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.type}
+                      loading="lazy"
                       className="rounded-full transform group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>

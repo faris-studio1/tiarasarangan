@@ -70,6 +70,7 @@ const ArtikelDetailComponent = () => {
               alt={article.title}
               width={800}
               height={450}
+              loading="lazy"
               layout="responsive"
               className="rounded-2xl object-cover"
             />
@@ -150,6 +151,7 @@ const ArtikelDetailComponent = () => {
                   alt={article.title}
                   width={500}
                   height={300}
+                  loading="lazy"
                   layout="responsive"
                 />
                 <div className="p-6">

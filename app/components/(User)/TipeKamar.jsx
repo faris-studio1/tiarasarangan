@@ -58,6 +58,7 @@ const TipeKamarComponent = () => {
                 <Image
                   src={room.img}
                   alt={room.type}
+                  loading="lazy"
                   className="object-cover w-full h-40 transform group-hover:scale-110 transition-transform duration-300"
                   layout="fill"
                 />

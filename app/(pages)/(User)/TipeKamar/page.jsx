@@ -96,7 +96,8 @@ const TipeKamarPage = () => {
               <Image
                 src={room.image}
                 alt={room.title}
-                className="w-full md:w-4/6 lg:w-3/5 rounded-3xl mb-6 md:mb-0 mr-10 lg:mr-12 transform hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                className="w-full md:w-4/6 lg:w-3/5 rounded-xl md:rounded-3xl mb-6 md:mb-0 mr-10 lg:mr-12 transform hover:scale-105 transition-transform duration-300"
               />
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">

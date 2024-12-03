@@ -1,6 +1,9 @@
 @import "~@glidejs/glide/dist/css/glide.core.min.css";
 @import "~@glidejs/glide/dist/css/glide.theme.min.css";
 
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Parkinsans:wght@300..800&display=swap");
 
 @font-face {

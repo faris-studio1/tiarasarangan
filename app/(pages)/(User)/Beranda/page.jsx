@@ -1,14 +1,31 @@
 import React from "react";
 import UserTemplate from "@/app/(templates)/(User)/UserTemplate";
-import JumbotronComponent from "@/app/components/(User)/Jumbotron";
-import HighlightComponent from "@/app/components/(User)/Highlights";
-import TentangComponent from "@/app/components/(User)/Tentang";
-import TipeKamarComponent from "@/app/components/(User)/TipeKamar";
-import FasilitasComponent from "@/app/components/(User)/Fasilitas";
-import GaleriComponent from "@/app/components/(User)/Galeri";
-import TestimoniComponent from "@/app/components/(User)/Testimoni";
-import ArtikelComponent from "@/app/components/(User)/Artikel";
-import FaqComponent from "@/app/components/(User)/Faq";
+import dynamic from "next/dynamic";
+
+// Menggunakan dynamic import untuk lazy loading setiap komponen
+const JumbotronComponent = dynamic(() =>
+  import("@/app/components/(User)/Jumbotron")
+);
+const HighlightComponent = dynamic(() =>
+  import("@/app/components/(User)/Highlights")
+);
+const TentangComponent = dynamic(() =>
+  import("@/app/components/(User)/Tentang")
+);
+const TipeKamarComponent = dynamic(() =>
+  import("@/app/components/(User)/TipeKamar")
+);
+const FasilitasComponent = dynamic(() =>
+  import("@/app/components/(User)/Fasilitas")
+);
+const GaleriComponent = dynamic(() => import("@/app/components/(User)/Galeri"));
+const TestimoniComponent = dynamic(() =>
+  import("@/app/components/(User)/Testimoni")
+);
+const ArtikelComponent = dynamic(() =>
+  import("@/app/components/(User)/Artikel")
+);
+const FaqComponent = dynamic(() => import("@/app/components/(User)/Faq"));
 
 const BerandaPage = () => {
   return (

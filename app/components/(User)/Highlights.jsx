@@ -39,6 +39,7 @@ function HighlightComponent() {
                   alt={section.title}
                   width={800}
                   height={500}
+                  loading="lazy"
                   className="w-full h-full object-cover rounded-3xl"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black to-transparent rounded-3xl">

@@ -13,8 +13,9 @@ function DirectWaComponent() {
         <Image
           src="https://static.vecteezy.com/system/resources/previews/021/495/946/original/whatsapp-logo-icon-free-png.png"
           alt="WhatsApp"
-          width={64} // Anda bisa menyesuaikan ukuran sesuai kebutuhan
-          height={64} // Anda bisa menyesuaikan ukuran sesuai kebutuhan
+          width={64}
+          height={64}
+          loading="lazy"
           className="w-16 h-16 transition-transform duration-300 hover:scale-110"
         />
       </a>

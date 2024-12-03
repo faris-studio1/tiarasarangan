@@ -72,6 +72,7 @@ const TentangComponent = () => {
                   alt={`Villa Tiara Sarangan ${index}`}
                   width={800}
                   height={500}
+                  loading="lazy"
                   layout="responsive"
                 />
               </SwiperSlide>

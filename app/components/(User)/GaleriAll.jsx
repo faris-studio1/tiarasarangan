@@ -48,6 +48,7 @@ const GaleriAllComponent = () => {
                     alt={`Gallery Image ${index + 1}`}
                     width={800}
                     height={533}
+                    loading="lazy"
                     layout="responsive"
                   />
                   <div className="absolute inset-0 bg-black via-transparent opacity-0 group-hover:opacity-70 flex items-center justify-center transition-opacity duration-300 pointer">
