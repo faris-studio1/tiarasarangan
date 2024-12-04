@@ -18,7 +18,7 @@ const ArtikelAllComponent = () => {
 
   return (
     <div className="py-16">
-      <div className="container mx-auto px-5 md:px-20 mt-24">
+      <div className="container mx-auto px-12 md:px-20 mt-16 md:mt-24">
         {/* Title Section */}
         <section className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800">
@@ -28,9 +28,9 @@ const ArtikelAllComponent = () => {
 
         {/* Articles Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {articles

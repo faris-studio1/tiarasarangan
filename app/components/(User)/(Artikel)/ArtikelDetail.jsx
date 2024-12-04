@@ -55,7 +55,7 @@ const ArtikelDetailComponent = () => {
         </button>
 
         {/* Detail Artikel */}
-        <div className="bg-white rounded-xl shadow-lg px-14 py-14 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-lg px-10 py-14 overflow-hidden">
           {/* Judul Artikel */}
           <div>
             <h1 className="text-2xl font-extrabold text-gray-800 my-4 text-center">
@@ -72,7 +72,7 @@ const ArtikelDetailComponent = () => {
               height={450}
               loading="lazy"
               layout="responsive"
-              className="rounded-2xl object-cover"
+              className="rounded-xl md:rounded-2xl object-cover"
             />
           </div>
 
@@ -133,9 +133,9 @@ const ArtikelDetailComponent = () => {
         </div>
         {/* Articles Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 2 }}
           className="grid grid-cols-1 gap-4"
         >
           {articles.length > 0 ? (

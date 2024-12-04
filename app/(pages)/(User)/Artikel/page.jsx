@@ -1,6 +1,6 @@
 import React from "react";
 import UserTemplate2 from "@/app/(templates)/(User)/UserTemplate2";
-import ArtikelAllComponent from "@/app/components/(User)/ArtikelAll";
+import ArtikelAllComponent from "@/app/components/(User)/(Artikel)/ArtikelAll";
 
 const ArtikelPage = () => {
   return (

@@ -47,7 +47,7 @@ const TipeKamarComponent = () => {
         </section>
 
         {/* Rooms Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:mx-16">
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-4 md:mx-0 lg:mx-16">
           {rooms.map((room) => (
             <div
               key={room.type}

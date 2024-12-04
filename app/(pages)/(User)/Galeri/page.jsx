@@ -1,6 +1,6 @@
 import React from "react";
 import UserTemplate2 from "@/app/(templates)/(User)/UserTemplate2";
-import GaleriAllComponent from "@/app/components/(User)/GaleriAll";
+import GaleriAllComponent from "@/app/components/(User)/(Galeri)/GaleriAll";
 
 const GaleriPage = () => {
   return (

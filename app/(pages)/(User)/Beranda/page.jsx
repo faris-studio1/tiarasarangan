@@ -1,62 +1,94 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState, useRef } from "react";
 import UserTemplate from "@/app/(templates)/(User)/UserTemplate";
 import dynamic from "next/dynamic";
 
-// Menggunakan dynamic import untuk lazy loading setiap komponen
-const JumbotronComponent = dynamic(() =>
-  import("@/app/components/(User)/Jumbotron")
-);
-const HighlightComponent = dynamic(() =>
-  import("@/app/components/(User)/Highlights")
-);
-const TentangComponent = dynamic(() =>
-  import("@/app/components/(User)/Tentang")
-);
-const TipeKamarComponent = dynamic(() =>
-  import("@/app/components/(User)/TipeKamar")
-);
-const FasilitasComponent = dynamic(() =>
-  import("@/app/components/(User)/Fasilitas")
-);
-const GaleriComponent = dynamic(() => import("@/app/components/(User)/Galeri"));
-const TestimoniComponent = dynamic(() =>
-  import("@/app/components/(User)/Testimoni")
-);
-const ArtikelComponent = dynamic(() =>
-  import("@/app/components/(User)/Artikel")
-);
-const FaqComponent = dynamic(() => import("@/app/components/(User)/Faq"));
+const componentsBeranda = [
+  {
+    id: "jumbotron",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Jumbotron")
+    ),
+  },
+  {
+    id: "highlight",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Highlights")
+    ),
+  },
+  {
+    id: "tentang",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Tentang")
+    ),
+  },
+  {
+    id: "tipe-kamar",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/TipeKamar")
+    ),
+  },
+  {
+    id: "fasilitas",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Fasilitas")
+    ),
+  },
+  {
+    id: "galeri",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Galeri")
+    ),
+  },
+  {
+    id: "artikel",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Artikel")
+    ),
+  },
+  {
+    id: "faq",
+    component: dynamic(() => import("@/app/components/(User)/(Beranda)/Faq")),
+  },
+];
 
 const BerandaPage = () => {
+  const [visibleSections, setVisibleSections] = useState({});
+  const observer = useRef();
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const elements = document.querySelectorAll(".fade-in");
+    elements.forEach((el) => observer.current.observe(el));
+
+    return () => observer.current.disconnect();
+  }, []);
+
   return (
     <UserTemplate>
-      <div id="beranda">
-        <JumbotronComponent />
-      </div>
-      <div id="highlight">
-        <HighlightComponent />
-      </div>
-      <div id="tentang">
-        <TentangComponent />
-      </div>
-      <div id="tipe-kamar">
-        <TipeKamarComponent />
-      </div>
-      <div id="fasilitas">
-        <FasilitasComponent />
-      </div>
-      <div id="testimoni">
-        <TestimoniComponent />
-      </div>
-      <div id="galeri">
-        <GaleriComponent />
-      </div>
-      <div id="artikel">
-        <ArtikelComponent />
-      </div>
-      <div id="faq">
-        <FaqComponent />
-      </div>
+      {componentsBeranda.map(({ id, component: Component }) => (
+        <div
+          key={id}
+          id={id}
+          className={`fade-in ${visibleSections[id] ? "fade-in-visible" : ""}`}
+          aria-label={`Section ${id}`}
+        >
+          <Component />
+        </div>
+      ))}
     </UserTemplate>
   );
 };

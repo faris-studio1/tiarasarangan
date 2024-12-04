@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import artikelLists from "./ArtikelDummy.jsx";
+import artikelLists from "../(Artikel)/ArtikelDummy";
 
 const ArtikelComponent = () => {
   const [articles, setArticles] = useState([]);
@@ -39,9 +39,9 @@ const ArtikelComponent = () => {
 
         {/* Articles Section */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6"
         >
           {articles.length > 0 ? (

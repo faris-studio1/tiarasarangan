@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Image from "next/image";
-import images from "./GaleriDummy";
 import "react-photo-view/dist/react-photo-view.css";
 import { FaAngleRight } from "react-icons/fa";
+import images from "../(Galeri)/GaleriDummy";
 
 const GaleriComponent = () => {
   const [gallery, setGallery] = useState([]);
@@ -53,7 +53,7 @@ const GaleriComponent = () => {
 
         {/* Gallery Section */}
         <PhotoProvider>
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-6 md:mx-10">
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 md:mx-10">
             {gallery.map((image, index) => {
               if (index < gallery.length - 1) {
                 return (
