@@ -23,9 +23,16 @@ const ArtikelComponent = () => {
     }
   }, []);
 
+  const truncateText = (text, limit) => {
+    const words = text.split(" ");
+    return words.length > limit
+      ? words.slice(0, limit).join(" ") + "..."
+      : text;
+  };
+
   return (
     <div className="py-16">
-      <div className="container mx-auto px-5 md:px-24">
+      <div className="container mx-auto px-5 md:px-20">
         {/* Title Section */}
         <section className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
@@ -42,7 +49,7 @@ const ArtikelComponent = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-6 md:px-0"
         >
           {articles.length > 0 ? (
             articles.map((article) => (
@@ -51,18 +58,20 @@ const ArtikelComponent = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden group"
               >
-                <Image
-                  className="w-full h-48 object-cover group-hover:opacity-90 transition duration-300"
-                  src={article.src}
-                  alt={article.title}
-                  width={500}
-                  height={300}
-                  loading="lazy"
-                  layout="responsive"
-                />
+                <div className="w-full h-40 overflow-hidden">
+                  <Image
+                    className="object-cover w-full h-full"
+                    src={article.src}
+                    alt={`Blog ${article.id}`}
+                    width={500}
+                    height={300}
+                    layout="responsive"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-800 group-hover:text-red-600 transition duration-300">
-                    {article.title}
+                    {truncateText(article.title, 8)}
                   </h3>
                   <p className="text-gray-500 text-sm mt-2 mb-4">
                     {article.date}

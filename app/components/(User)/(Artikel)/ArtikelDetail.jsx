@@ -39,6 +39,13 @@ const ArtikelDetailComponent = () => {
     }
   }, []);
 
+  const truncateText = (text, limit) => {
+    const words = text.split(" ");
+    return words.length > limit
+      ? words.slice(0, limit).join(" ") + "..."
+      : text;
+  };
+
   if (!article) {
     return <div className="text-center py-20">Loading...</div>;
   }
@@ -145,18 +152,20 @@ const ArtikelDetailComponent = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden group"
               >
-                <Image
-                  className="w-full h-48 object-cover group-hover:opacity-90 transition duration-300"
-                  src={article.src}
-                  alt={article.title}
-                  width={500}
-                  height={300}
-                  loading="lazy"
-                  layout="responsive"
-                />
+                <div className="w-full h-40 overflow-hidden">
+                  <Image
+                    className="object-cover w-full h-full"
+                    src={article.src}
+                    alt={`Blog ${article.id}`}
+                    width={500}
+                    height={300}
+                    layout="responsive"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-800 group-hover:text-red-600 transition duration-300">
-                    {article.title}
+                    {truncateText(article.title, 8)}
                   </h3>
                   <p className="text-gray-500 text-sm mt-2 mb-4">
                     {article.date}

@@ -1,7 +1,10 @@
+import artikel1 from "@/public/artikel1.jpg";
+import artikel3 from "@/public/artikel3.jpg";
+
 const artikelLists = [
   {
     id: 1,
-    src: "https://th.bing.com/th/id/OIP.eJXmC9pNGT3CqtVbtv3kaAHaEm?rs=1&pid=ImgDetMain",
+    src: artikel1,
     title:
       "Keindahan Telaga Sarangan: Destinasi Wisata Sejuk di Lereng Gunung Lawu",
     date: "November 21, 2024",
@@ -75,7 +78,7 @@ const artikelLists = [
   },
   {
     id: 3,
-    src: "https://th.bing.com/th/id/OIP.eJXmC9pNGT3CqtVbtv3kaAHaEm?rs=1&pid=ImgDetMain",
+    src: artikel3,
     title: "Tips Memilih Villa di Sarangan untuk Liburan yang Nyaman dan Hemat",
     date: "November 04, 2024",
     content: `
