@@ -29,7 +29,7 @@ const ArtikelAllComponent = () => {
         {/* Title Section */}
         <section className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-            Seluruh <span className="text-red-600">Artikel</span>
+            Semua <span className="text-red-600">Artikel</span>
           </h1>
         </section>
 
