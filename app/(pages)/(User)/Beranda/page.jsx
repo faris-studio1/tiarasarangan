@@ -35,6 +35,12 @@ const componentsBeranda = [
     ),
   },
   {
+    id: "testimoni",
+    component: dynamic(() =>
+      import("@/app/components/(User)/(Beranda)/Testimoni")
+    ),
+  },
+  {
     id: "galeri",
     component: dynamic(() =>
       import("@/app/components/(User)/(Beranda)/Galeri")
