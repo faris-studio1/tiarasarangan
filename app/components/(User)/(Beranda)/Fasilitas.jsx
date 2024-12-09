@@ -152,7 +152,7 @@ const FasilitasComponent = () => {
         <section>
           <Slider {...locationSettings}>
             {[
-              { name: "Telaga Sarangan", distance: "383 m dari villa" },
+              { name: "Telaga Sarangan", distance: "20 m dari villa" },
               { name: "Air Terjun Ngadiloyo", distance: "2.4 km dari villa" },
               { name: "Mojosemi Forest Park", distance: "1.23 km dari villa" },
               { name: "Agrowisata Strawberry", distance: "1.9 km dari villa" },

@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaAngleDown } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ArtikelAllComponent = () => {
   const [articles, setArticles] = useState([]);
+  const [visibleArticles, setVisibleArticles] = useState(20);
 
   useEffect(() => {
     // Ambil data dari localStorage
@@ -21,6 +22,10 @@ const ArtikelAllComponent = () => {
     return words.length > limit
       ? words.slice(0, limit).join(" ") + "..."
       : text;
+  };
+
+  const handleShowMore = () => {
+    setVisibleArticles((prevVisibleArticles) => prevVisibleArticles + 20);
   };
 
   return (
@@ -41,7 +46,7 @@ const ArtikelAllComponent = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {articles
-            .slice()
+            .slice(0, visibleArticles)
             .reverse()
             .map((article) => (
               <motion.div
@@ -84,6 +89,18 @@ const ArtikelAllComponent = () => {
               </motion.div>
             ))}
         </motion.section>
+
+        {/* Show More Button */}
+        {visibleArticles < articles.length && (
+          <div className="flex items-center text-lg justify-center mt-8">
+            <button
+              onClick={handleShowMore}
+              className="text-gray-800 hover:text-red-600 flex items-center font-bold py-2 px-4 transition duration-300 transform hover:-translate-y-1 animate-bounce"
+            >
+              Show More <FaAngleDown className="ml-2" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

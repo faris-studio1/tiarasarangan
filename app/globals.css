@@ -236,7 +236,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .fade-out {
   opacity: 0;
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: opacity 1s ease, transform 1.6s ease;
 }
 
