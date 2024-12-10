@@ -1,9 +1,7 @@
 const images = [];
 
-// Mengimpor gambar dari galerikamar(1) hingga galerikamar(63)
 for (let i = 1; i <= 21; i++) {
-  const image = require(`@/public/galerikamar/galerikamar(${i}).JPG`);
-  images.push(image);
+  images.push(`/galerikamar/galerikamar(${i}).JPG`);
 }
 
 // Menambahkan URL gambar langsung
