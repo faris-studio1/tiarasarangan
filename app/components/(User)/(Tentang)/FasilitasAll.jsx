@@ -22,8 +22,8 @@ const FasilitasAllComponent = () => {
           },
           {
             icon: <FaParking />,
-            title: "Parkir Luas",
-            description: "Area parkir luas yang aman dan nyaman.",
+            title: "Parkir Strategis",
+            description: "Area parkir strategis yang aman dan nyaman.",
           },
           {
             icon: <FaUtensils />,

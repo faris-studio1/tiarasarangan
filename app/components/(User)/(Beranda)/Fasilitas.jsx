@@ -97,7 +97,7 @@ const FasilitasComponent = () => {
             },
             {
               icon: <FaParking className="text-5xl text-red-600 mb-4" />,
-              title: "Parkir Luas",
+              title: "Parkir Strategis",
               description: "Area parkir aman dan nyaman.",
             },
             {
