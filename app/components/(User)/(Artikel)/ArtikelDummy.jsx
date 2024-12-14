@@ -1,5 +1,6 @@
 import artikel1 from "@/public/artikel1.jpg";
 import artikel3 from "@/public/artikel3.jpg";
+import artikel4 from "@/public/artikel4.jpg";
 
 const artikelLists = [
   {
