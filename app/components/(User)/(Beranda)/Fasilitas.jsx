@@ -13,6 +13,7 @@ import {
   FaChalkboardTeacher,
   FaMapMarkerAlt,
   FaAngleRight,
+  FaMosque,
 } from "react-icons/fa";
 
 const FasilitasComponent = () => {
@@ -116,6 +117,11 @@ const FasilitasComponent = () => {
               ),
               title: "Meeting Room",
               description: "Fasilitas lengkap dan nyaman.",
+            },
+            {
+              icon: <FaMosque className="text-5xl text-red-600 mb-4" />,
+              title: "Musholla",
+              description: "Tempat ibadah yang nyaman dan bersih.",
             },
             {
               icon: <FaWifi className="text-5xl text-red-600 mb-4" />,
