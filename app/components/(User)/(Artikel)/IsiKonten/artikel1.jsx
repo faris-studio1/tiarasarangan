@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import perahu from "@/public/imgArtikel/perahu.jpg";
 
 const Artikel1 = () => {
   return (
@@ -36,6 +38,12 @@ const Artikel1 = () => {
       <h2 className="text-xl">
         <strong>Aktivitas Seru di Wisata Telaga Sarangan</strong>
       </h2>
+      <br />
+      <Image
+        src={perahu}
+        alt="Wisata Telaga Sarangan"
+        className="rounded-xl mt-4"
+      />
       <br />
       <ul>
         <li>
