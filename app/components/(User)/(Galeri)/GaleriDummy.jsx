@@ -1,11 +1,11 @@
-const images = [];
+const mediaItems = [];
 
 for (let i = 1; i <= 21; i++) {
-  images.push(`/galerikamar/galerikamar(${i}).JPG`);
+  mediaItems.push({ type: "image", src: `/galerikamar/galerikamar(${i}).JPG` });
 }
 
 // Menambahkan URL gambar langsung
-images.push(
+const imageUrls = [
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-9fc40c87b7c08e70296547d0c97dc3cd.jpeg",
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-43300d1713b75257b064b79df6654401.jpeg",
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-5c9c6a49c99dee99b1ea62a8b1122086.jpeg",
@@ -25,7 +25,15 @@ images.push(
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-147640908bf0184df67e31f2c26009fa.jpeg",
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-a8bea632164c78cc2c56fcee6b9a6f92.jpeg",
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-0f37d0bca85a2cbeb213f51c93fe4de1.jpeg",
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-74c2b886c0303fb917779d9ac5940ae4.jpeg"
-);
+  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10011479-74c2b886c0303fb917779d9ac5940ae4.jpeg",
+];
 
-export default images;
+imageUrls.forEach((url) => mediaItems.push({ type: "image", src: url }));
+
+// Menambahkan URL video drive
+mediaItems.push({
+  type: "video",
+  src: "https://drive.google.com/file/d/13MKFFou8MtOZgJW5kYb2lf6B2L1PZGIK/preview",
+});
+
+export default mediaItems;
