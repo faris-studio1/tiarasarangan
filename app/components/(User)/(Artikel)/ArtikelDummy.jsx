@@ -1,11 +1,13 @@
 import img1 from "@/public/imgArtikel/img1.jpg";
 import img3 from "@/public/imgArtikel/img3.jpg";
 import img4 from "@/public/imgArtikel/img4.jpg";
+import img5 from "@/public/imgArtikel/img4.jpg";
 
 import Artikel1 from "./IsiKonten/artikel1";
 import Artikel2 from "./IsiKonten/artikel2";
 import Artikel3 from "./IsiKonten/artikel3";
 import Artikel4 from "./IsiKonten/artikel4";
+import Artikel5 from "./IsiKonten/artikel5";
 
 const artikelLists = [
   {
@@ -73,6 +75,24 @@ const artikelLists = [
       "outingvilla",
       "villatiarasarangan",
       "outingkaryawan",
+    ],
+    readmore: 1,
+    readmoreTitle:
+      "Keindahan Telaga Sarangan: Destinasi Wisata Sejuk di Lereng Gunung Lawu",
+  },
+  {
+    id: 5,
+    src: img4,
+    title:
+      "Informasi Harga Tiket Wisata Telaga Sarangan Terbaru! Serta Lokasi dan Jam Bukanya",
+    date: "April 05, 2025",
+    content: <Artikel5 />,
+    tags: [
+      "TiketSarangan",
+      "LokasiTelagaSarangan",
+      "TelagaSarangan",
+      "InformasiTelagaSarangan",
+      "villatiarasarangan",
     ],
     readmore: 1,
     readmoreTitle:
