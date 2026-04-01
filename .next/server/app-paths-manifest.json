@@ -1,10 +1,10 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(pages)/(Admin)/DaftarCheckIn/page": "app/(pages)/(Admin)/DaftarCheckIn/page.js",
-  "/(pages)/(Admin)/DaftarBooking/page": "app/(pages)/(Admin)/DaftarBooking/page.js",
   "/(pages)/(Admin)/DaftarKamar/page": "app/(pages)/(Admin)/DaftarKamar/page.js",
+  "/(pages)/(Admin)/DaftarBooking/page": "app/(pages)/(Admin)/DaftarBooking/page.js",
   "/(pages)/(Admin)/DaftarRiwayat/page": "app/(pages)/(Admin)/DaftarRiwayat/page.js",
+  "/(pages)/(Admin)/DaftarCheckIn/page": "app/(pages)/(Admin)/DaftarCheckIn/page.js",
   "/(pages)/(Admin)/DaftarTamu/page": "app/(pages)/(Admin)/DaftarTamu/page.js",
   "/(pages)/(Admin)/Dashboard/page": "app/(pages)/(Admin)/Dashboard/page.js",
   "/(pages)/(Admin)/Login/page": "app/(pages)/(Admin)/Login/page.js",

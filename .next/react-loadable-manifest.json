@@ -1,11 +1,11 @@
 {
   "app\\(pages)\\(User)\\Beranda\\page.jsx -> @/app/components/(User)/(Beranda)/Artikel": {
-    "id": 8320,
+    "id": 7416,
     "files": [
       "static/chunks/8cc6faea.5e3e4af29eed8edb.js",
       "static/chunks/d648eb28.f2a6aa06300b0460.js",
       "static/chunks/9675-096ceaa317882d3f.js",
-      "static/chunks/5939.be73d08d14083170.js"
+      "static/chunks/7416.f80441133de44147.js"
     ]
   },
   "app\\(pages)\\(User)\\Beranda\\page.jsx -> @/app/components/(User)/(Beranda)/Faq": {
