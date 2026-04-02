@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import telaga from "@/public/imgArtikel/telaga.jpg";
+import telaga from "@/public/imgArtikel/telagasa.jpg";
 
 const Artikel6 = () => {
   return (
